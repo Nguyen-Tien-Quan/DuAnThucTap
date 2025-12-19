@@ -1,0 +1,22 @@
+:root {
+    --primary-color: #003c8b;
+    --white-color: #fff;
+    --black-color: #000;
+    --gray-color: #ccc;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    line-height: 1.6rem;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}

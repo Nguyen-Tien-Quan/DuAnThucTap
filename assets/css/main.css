@@ -1,0 +1,1084 @@
+/* HEADER */
+.header-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.header-fixed.shrink .header {
+    padding: 10px 30px;
+}
+.header {
+    display: flex;
+    padding: 10px 30px;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+}
+
+.header-logo {
+    display: flex;
+}
+
+.head-logo {
+    width: 100px;
+    height: 68px;
+    padding: 2px 8px 2px 4px;
+    border: 2px solid #ccc;
+    /* box-shadow: 1px 2px 1px 2px #000; */
+}
+
+.head-text {
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.head-title {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.head-desc {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    padding: 14px 0 0;
+}
+
+.head-hotline {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.head-lang {
+    display: flex;
+    gap: 8px;
+}
+
+.head-lang .fi {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.head-lang .fi:hover {
+    transform: scale(1.1);
+}
+
+.head-phone {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: #fff5e6;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #f39c12;
+}
+
+.head-phone-icon {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    background-color: #f39c12;
+
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='white' d='M497.4 361.8l-112-48a32 32 0 0 0-36.9 9.6l-49.6 60.6a352 352 0 0 1-168-168l60.6-49.6a32 32 0 0 0 9.6-36.9l-48-112A32 32 0 0 0 119.4 0H16A16 16 0 0 0 0 16c0 273.1 222.9 496 496 496a16 16 0 0 0 16-16V392.6a32 32 0 0 0-14.6-30.8z'/%3E%3C/svg%3E")
+        no-repeat center / contain;
+}
+
+/* Navbar */
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px 16px;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.nav-item-link {
+    position: relative;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease;
+}
+
+.nav-item-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: #f39c12; /* xanh trong ảnh */
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-item-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-item-link:hover::after {
+    width: 80%;
+}
+
+.nav-item-link.active {
+    color: var(--primary-color);
+}
+
+.nav-item-link.active::after {
+    width: 80%;
+}
+
+.nav-search {
+    display: flex;
+    align-items: center;
+    padding: 2px 6px;
+    border: 3px solid var(--gray-color);
+    border-radius: 20px;
+    background: var(--white-color);
+}
+
+.nav-search-input {
+    border: none;
+    outline: none;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    width: 140px;
+}
+
+.nav-search-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* CONTAINER */
+
+/* ===== BANNER ===== */
+.home-banner {
+    padding-top: 160px;
+    position: relative;
+    width: 100%;
+    height: 500px; /* Điều chỉnh chiều cao phù hợp */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+/* Lớp nền bệnh viện */
+.banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 85%; /* Thu hẹp lại để lộ phần bên phải */
+    height: 100%;
+    z-index: 1;
+    /* Tạo độ vát chéo cho ảnh nền */
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+}
+
+.banner-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* background: url("../assets/img/bg-hospital-hall.png") cover / no-repeat
+        center; */
+}
+
+/* Thêm một lớp nền phụ màu xanh đậm phía sau cùng (nếu cần giống hình mẫu) */
+.home-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 100%;
+    background-color: #1a3052; /* Màu xanh đậm của header/footer */
+    z-index: 0;
+}
+
+/* Hình khối màu xanh bên trái */
+.blue-diagonal-shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 2;
+}
+.blue-diagonal-shape img {
+    height: 100%;
+    width: 700px;
+}
+
+/* Wrapper nội dung chính */
+.banner-wrapper {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+
+/* Phần chữ bên trái */
+.banner-content {
+    flex: 1;
+}
+
+.banner-content h1 {
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 5px;
+}
+
+.banner-content h1 span {
+    font-size: 32px;
+}
+.title-wrapper {
+    display: block;
+    width: fit-content; /* Quan trọng: Nó sẽ ôm sát chiều rộng của chữ h1 */
+    margin-bottom: 20px;
+}
+
+.banner-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0;
+    white-space: nowrap; /* Đảm bảo chữ không bị tự động xuống hàng làm hỏng width */
+}
+.orange-line {
+    width: 100%;
+    height: 3px;
+    background-color: #f39200; /* Màu cam đặc trưng */
+    margin-bottom: 20px;
+}
+
+.info-list p {
+    font-size: 16px;
+    margin: 8px 0;
+    font-weight: 500;
+}
+
+.btn-detail {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 25px;
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.btn-detail:hover {
+    background-color: #f39200;
+    border-color: #f39200;
+}
+
+/* Hình ảnh sản phẩm bên phải */
+.banner-product-img {
+    flex: 1;
+    text-align: center;
+    padding-right: 10%;
+}
+
+.banner-product-img img {
+    max-height: 400px; /* Để ảnh máy không quá to so với banner */
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+}
+
+/* Nút điều hướng mũi tên */
+.arrow {
+    position: absolute;
+
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.prev {
+    left: 20px;
+}
+.next {
+    right: 20px;
+}
+
+.arrow:hover {
+    color: #fff;
+}
+
+/* =========================
+   CÁC HÃNG SẢN XUẤT
+========================= */
+
+.brands {
+    padding: 30px 30px;
+    background: #fff;
+}
+
+.brands-box {
+    position: relative;
+    border: 1px solid #e2e2e2;
+    border-radius: 6px;
+    background: #fff;
+    padding: 26px 60px 20px; /* ↓ giảm padding dọc */
+}
+
+.brands-label {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    padding: 4px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1f3b63;
+    text-transform: uppercase;
+    background: #fff;
+}
+
+.brands-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+}
+
+.brands-item {
+    width: 140px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brands-item img {
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain; /* GIỮ TỶ LỆ */
+    object-position: center;
+
+    filter: grayscale(100%);
+    opacity: 0.85;
+    transition: 0.2s ease;
+}
+
+.brands-item img:hover {
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+/* MŨI TÊN */
+.brands-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    color: #333;
+}
+
+.brands-arrow.left {
+    left: 14px;
+}
+
+.brands-arrow.right {
+    right: 14px;
+}
+
+.brands-arrow:hover {
+    background: #f5f5f5;
+}
+
+/* CATEGORY */
+.product-grid-full {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Chia làm 2 cột */
+    width: 100%;
+    /* Nếu muốn có khoảng cách giữa các ô, thêm gap: 2px; */
+}
+
+.cat-item {
+    margin: 10px;
+    position: relative;
+    height: 300px; /* Điều chỉnh chiều cao phù hợp */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    overflow: hidden;
+    padding: 10px 40px;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    background-image: url("../img/bg-hospital-hall.png");
+}
+
+/* Lớp phủ màu mờ (Overlay) */
+.cat-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: 0.3s;
+}
+
+.cat-item::before:hover {
+    width: 0%;
+}
+
+/* Thiết lập ảnh nền và màu cho từng ô theo thiết kế */
+/* Ô 1: Chẩn đoán hình ảnh */
+.cat-item.cyan {
+    background-image: url("../img/bg-hospital-hall.png"); /* Thay bằng ảnh nền mờ của bạn */
+}
+.cat-item.cyan::before {
+    background-color: rgba(0, 188, 212, 0.8);
+} /* Màu xanh lơ mờ */
+
+/* Ô 2: Hồi sức cấp cứu */
+.cat-item.purple {
+    background-image: url("../img/bg-hospital-2.png");
+}
+.cat-item.purple::before {
+    background-color: rgba(156, 39, 176, 0.4);
+} /* Màu tím mờ hơn */
+
+/* Ô 3: Phòng mổ */
+.cat-item.yellow {
+    background-image: url("../img/bg-hospital-3.png");
+}
+.cat-item.yellow::before {
+    background-color: rgba(255, 160, 0, 0.8);
+}
+
+/* Ô 4: Chuyên khoa nội */
+.cat-item.steel {
+    background-image: url("../img/bg-hospital-3.png");
+}
+.cat-item.steel::before {
+    background-color: rgba(69, 90, 100, 0.7);
+}
+
+/* Ô 5: Sản nhi */
+.cat-item.pink {
+    background-image: url("../img/bg-hospital-3.png");
+}
+.cat-item.pink::before {
+    background-color: rgba(233, 30, 99, 0.7);
+}
+
+/* Ô 6: Phục hồi chức năng */
+.cat-item.blue {
+    background-image: url("../img/bg-hospital-3.png");
+}
+.cat-item.blue::before {
+    background-color: rgba(3, 169, 244, 0.8);
+}
+
+/* Nội dung bên trong (Chữ và Ảnh máy) */
+.cat-info {
+    position: relative;
+    z-index: 2; /* Nổi lên trên lớp màu mờ */
+    max-width: 50%;
+}
+
+.cat-info span {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.cat-info h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0 20px 0;
+}
+
+.btn-more {
+    display: inline-block;
+    padding: 6px 15px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    background: rgba(255, 255, 255, 0.2);
+    transition: 0.3s;
+}
+
+.btn-more:hover {
+    background: #fff;
+    color: #333;
+}
+
+.cat-img {
+    position: relative;
+    bottom: -40px;
+    z-index: 2;
+    height: 80%;
+}
+
+.cat-img img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    /* Hiệu ứng đổ bóng cho thiết bị nổi bật hơn */
+    filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.3));
+}
+
+/* Hiệu ứng Hover: Làm lớp màu sáng lên hoặc tối đi */
+.cat-item:hover::before {
+    opacity: 0.6;
+}
+
+/* 3. SECTION KIẾN THỨC Y TẾ */
+.medical-news {
+    width: 100%;
+    padding: 40px 0;
+    background: #fff;
+    font-family: Arial, sans-serif;
+}
+
+/* Tiêu đề phần Kiến thức y tế */
+.news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #ddd;
+}
+
+.news-header h2 {
+    font-size: 1.5rem;
+    color: #1a3052;
+    padding-bottom: 10px;
+    margin: 0;
+}
+
+/* Các dấu chấm trang trí */
+.news-dots span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #ccc;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+.news-dots span:first-child {
+    background: #1a3052;
+}
+
+/* Hệ thống lưới 4 cột */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Chia 4 cột đều nhau */
+    gap: 15px; /* Khoảng cách giữa các khối */
+    padding: 0 30px;
+}
+
+.news-item {
+    display: flex;
+    flex-direction: column; /* Sắp xếp ảnh và text theo chiều dọc */
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: all 0.4s ease; /* Thời gian chuyển đổi mượt mà */
+    cursor: pointer;
+    position: relative;
+    top: 0; /* Để lát nữa hover thì đẩy lên */
+}
+
+.news-img {
+    position: relative;
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.news-item:hover {
+    /* Đổ bóng sâu hơn và đẩy khối lên trên 5px */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    top: -5px;
+    border-color: #1a3052; /* Đổi màu viền sang xanh đậm */
+}
+
+.news-item:hover .news-img img {
+    transform: scale(1.1); /* Phóng to ảnh 10% */
+}
+
+.news-item:hover .news-text h3 {
+    color: #f39c12; /* Đổi tiêu đề sang màu cam khi hover */
+    transition: color 0.3s ease;
+}
+
+.news-img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(26, 48, 82, 0.2); /* Lớp phủ xanh mờ */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.news-item:hover .news-img::after {
+    opacity: 1;
+}
+
+.news-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Phần Chữ */
+.news-text {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.news-text h3 {
+    font-size: 1.1rem;
+    color: #1a3052;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Giới hạn 2 dòng cho tiêu đề */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.news-text p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Giới hạn 3 dòng cho mô tả */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Mobile: Xuống thành 1 cột */
+@media (max-width: 768px) {
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* FOOTER */
+.footer {
+    background-color: #0f2137;
+    color: #eaf2fb;
+    padding: 32px 30px 20px;
+}
+
+/* Tiêu đề */
+.footer-title {
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+    color: #cfe7ff;
+    line-height: 1.5;
+}
+
+.footer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer-facebook-title {
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #cfe7ff;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Hàng cột nằm ngang */
+.footer-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    width: 100%;
+    padding-right: 30px;
+}
+
+.footer-col {
+    min-width: 340px;
+    max-width: 380px;
+}
+
+.footer-info-group {
+    display: flex; /* Kích hoạt flexbox */
+    align-items: stretch; /* Ép các con (p và sep) có chiều cao bằng nhau */
+    gap: 25px; /* Khoảng cách giữa chữ và đường kẻ */
+}
+
+.footer-info-group p {
+    margin: 0;
+    flex: 1;
+    line-height: 1.6;
+    font-size: 1.4rem;
+}
+
+.footer-info-group strong {
+    font-weight: 600;
+}
+
+.footer-info-group span {
+    display: inline-block;
+    padding-top: 8px;
+}
+
+.footer-sep {
+    height: 110px;
+    width: 1px;
+    background-color: rgba(255, 255, 255, 0.2); /* Màu trắng mờ thanh lịch */
+    display: block;
+}
+
+.footer-col i.footer-col-icon {
+    margin-right: 6px;
+    color: #18a0fb;
+}
+
+.footer-col-head {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.footer-col-icon {
+    margin-right: 6px;
+    color: #18a0fb;
+}
+
+.footer-facebook {
+    margin-left: auto;
+}
+
+.footer-facebook img {
+    width: 240px;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.06);
+    display: block; /* Loại bỏ khoảng trống thừa dưới ảnh */
+}
+/* Dòng dưới cùng */
+.footer-bottom {
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    padding-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.footer-menu {
+    display: flex;
+    gap: 16px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-menu li a {
+    color: #eaf2fb;
+    font-size: 1.4rem;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-menu li a:hover {
+    text-decoration: underline;
+}
+
+.footer-social {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-social a {
+    margin-left: 12px;
+    font-size: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: var(--white-color);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.footer-social a:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Responsive: xếp dọc khi màn hình nhỏ */
+@media (max-width: 992px) {
+    .footer-row {
+        flex-wrap: wrap;
+    }
+    .footer-facebook {
+        width: 100%;
+        margin-left: 0;
+        text-align: left;
+    }
+}
+
+@media (max-width: 640px) {
+    .footer-sep {
+        display: none;
+    }
+    .footer-col {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* ================= SERVICE BANNER ================= */
+.sv-banner {
+    height: 420px;
+    overflow: hidden;
+}
+
+.sv-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ================= BREADCRUMB ================= */
+.sv-breadcrumb {
+    background: #f3f3f3;
+    padding: 10px 80px;
+    font-size: 14px;
+}
+
+.sv-breadcrumb a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* ================= LAYOUT ================= */
+.sv-wrapper {
+    display: flex;
+    gap: 30px;
+    padding: 30px 80px;
+}
+
+/* ================= LEFT CONTENT ================= */
+.sv-main {
+    width: 70%;
+    font-size: 17px;
+    line-height: 1.9;
+    color: #333;
+}
+
+.sv-title {
+    font-size: 22px;
+    color: #1e73be;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.sv-subtitle {
+    font-size: 18px;
+    margin: 24px 0 12px;
+    font-weight: 600;
+}
+
+.sv-text {
+    margin-bottom: 14px;
+}
+
+/* IMAGE */
+.sv-image-block {
+    margin: 20px 0;
+}
+
+.sv-image-block img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+/* ================= NEWS ================= */
+.sv-news-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+
+.sv-news-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.sv-news-item p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Sidebar Container */
+.content-right {
+    width: 30%;
+}
+
+.sidebar-box {
+    background: #f7f7f7; /* Nền xám nhạt đặc trưng */
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    margin-bottom: 25px;
+}
+
+.sidebar-header {
+    background: #1e73be; /* Màu xanh đồng bộ với header của bạn */
+    color: #fff;
+    padding: 12px 15px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Item Sản phẩm */
+.sidebar-item {
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px dashed #ccc; /* Đường kẻ đứt quãng chuẩn mẫu */
+    align-items: center;
+}
+
+.sidebar-item:last-child {
+    border-bottom: none;
+}
+
+.item-thumb {
+    width: 70px;
+    height: 70px;
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 5px;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.item-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.item-info .item-title {
+    display: block;
+    color: #1a3052;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.item-info .item-more {
+    font-size: 12px;
+    color: #666;
+    text-decoration: none;
+}
+
+.item-info .item-more i {
+    font-size: 10px;
+    margin-right: 3px;
+    color: #1e73be;
+}
+
+/* Item Tin tức */
+.news-side-item {
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.news-thumb {
+    width: 80px;
+    height: 60px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+.news-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-info a {
+    color: #333;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.news-date {
+    font-size: 11px;
+    color: #999;
+    display: block;
+}

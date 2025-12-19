@@ -1,0 +1,108 @@
+.sidebar {
+    width: 300px; /* Độ rộng sidebar */
+    font-family: Arial, sans-serif;
+}
+
+.sidebar-box {
+    background: #f1f1f1; /* Nền xám nhạt của khối */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.sidebar-header {
+    background: #1a3052; /* Màu xanh đậm của tiêu đề */
+    color: #fff;
+    padding: 10px 15px;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.sidebar-content {
+    padding: 0 10px;
+}
+
+/* Sản phẩm item */
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px dashed #ccc; /* Đường kẻ đứt quãng */
+}
+
+.sidebar-item:last-child {
+    border-bottom: none;
+}
+
+.item-thumb {
+    width: 70px;
+    height: 70px;
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 5px;
+    margin-right: 15px;
+}
+
+.item-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.item-info .item-title {
+    display: block;
+    color: #1a3052;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.item-info .item-more {
+    font-size: 12px;
+    color: #666;
+    text-decoration: none;
+}
+
+/* Tin tức item */
+.news-side-item {
+    display: flex;
+    padding: 15px 0;
+    border-bottom: 1px dashed #ccc;
+}
+
+.news-thumb {
+    width: 80px;
+    height: 60px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.news-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-info a {
+    display: block;
+    font-size: 13px;
+    color: #333;
+    text-decoration: none;
+    line-height: 1.4;
+    margin-bottom: 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Giới hạn 2 dòng tiêu đề tin */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.news-date {
+    font-size: 11px;
+    color: #999;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}

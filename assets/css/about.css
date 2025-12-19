@@ -1,0 +1,159 @@
+/* ================= BANNER ================= */
+.banner {
+    padding-top: 148px;
+    height: 460px;
+    background-image: url("../img/logoabout.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 1.6rem;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    text-align: center;
+    font-weight: 500;
+}
+
+.banner-text span {
+    display: block;
+    padding-top: 14px;
+    line-height: 1.8;
+}
+
+/* ================= BREADCRUMB ================= */
+.breadcrumb {
+    background: #f3f3f3;
+    padding: 10px 80px;
+    font-size: 14px;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* ================= CONTENT LAYOUT ================= */
+.content {
+    display: flex;
+    gap: 30px;
+    padding: 30px 80px;
+}
+
+/* LEFT CONTENT */
+.content-left {
+    width: 70%;
+    font-size: 17px; /* ⭐ TĂNG CỠ CHỮ */
+    line-height: 1.9; /* ⭐ GIÃN DÒNG */
+    color: #333;
+}
+
+/* TITLE */
+.content-left h2 {
+    margin-bottom: 20px;
+    color: #1e73be;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.content-left h3 {
+    font-size: 18px;
+    margin: 22px 0 12px;
+    font-weight: 600;
+}
+
+/* PARAGRAPH */
+.content-left p {
+    margin-bottom: 14px;
+}
+
+/* IMAGE GROUP */
+.content-images {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.content-images img {
+    width: 33.33%;
+    object-fit: cover;
+}
+
+/* LIST */
+.content-left ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.content-left li {
+    margin-bottom: 10px;
+}
+
+/* ================= RIGHT SIDEBAR ================= */
+.content-right {
+    width: 30%;
+}
+
+.box {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.box h3 {
+    background: #1e73be;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.box ul {
+    list-style: none;
+    padding: 10px;
+}
+
+.box li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* ================= NEWS ================= */
+.news-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+
+.news-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+/* ================= CAM KẾT ================= */
+.commit {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.commit li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+/* ================= SLOGAN ================= */
+.slogan {
+    font-weight: 600;
+    margin: 20px 0;
+    font-style: italic;
+}
+
+/* ================= CONTACT INFO ================= */
+.contact-info p {
+    margin-bottom: 14px;
+    line-height: 1.8;
+}
