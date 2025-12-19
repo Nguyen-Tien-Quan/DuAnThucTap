@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Thêm "pages/" vào trước tên file
-    loadComponent("header-include", "/pages/header.html", setActiveMenu);
-    loadComponent("footer-include", "/pages/footer.html");
+    loadComponent("header-include", "pages/header.html", setActiveMenu);
+    loadComponent("footer-include", "pages/footer.html");
 });
 
 function loadComponent(containerId, filePath, callback) {
