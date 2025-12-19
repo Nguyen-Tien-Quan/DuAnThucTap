@@ -1,50 +1,50 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Thêm "pages/" vào trước tên file
-    loadComponent("header-include", "pages/header.html", setActiveMenu);
-    loadComponent("footer-include", "pages/footer.html");
+    // 1. Kiểm tra xem file hiện tại có nằm trong thư mục 'pages' hay không
+    const isInsidePages = window.location.pathname.includes("/pages/");
+
+    // 2. Nếu đang ở trong 'pages', chỉ cần gọi tên file. Nếu ở ngoài, phải thêm 'pages/'
+    const headerPath = isInsidePages ? "header.html" : "pages/header.html";
+    const footerPath = isInsidePages ? "footer.html" : "pages/footer.html";
+    const sidebarPath = isInsidePages ? "sidebar.html" : "pages/sidebar.html";
+
+    // 3. Gọi hàm load cho từng cái
+    loadComponent("header-include", headerPath, setActiveMenu);
+    loadComponent("footer-include", footerPath);
+    loadComponent("sidebar-include", sidebarPath);
 });
 
 function loadComponent(containerId, filePath, callback) {
-    var box = document.getElementById(containerId);
+    const box = document.getElementById(containerId);
     if (!box) return;
 
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", filePath, true);
-
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            box.innerHTML = xhr.responseText;
+    fetch(filePath)
+        .then((response) => {
+            if (!response.ok) throw new Error("404 Not Found: " + filePath);
+            return response.text();
+        })
+        .then((data) => {
+            box.innerHTML = data;
             if (callback) callback();
-        }
-    };
-
-    xhr.send();
+        })
+        .catch((err) => console.error("Lỗi load component:", err));
 }
 
-// ACTIVE MENU
+// Hàm xử lý Menu Active
 function setActiveMenu() {
     var links = document.querySelectorAll(".nav-item-link");
     var currentPath = window.location.pathname;
 
     links.forEach(function (link) {
-        var linkPath = new URL(link.href).pathname;
-        if (currentPath === linkPath) {
+        if (currentPath.includes(link.getAttribute("href"))) {
             link.classList.add("active");
         }
     });
 }
 
+// Hiệu ứng Header khi cuộn chuột
 window.addEventListener("scroll", () => {
-    document
-        .querySelector(".header-fixed")
-        .classList.toggle("shrink", window.scrollY > 80);
+    const header = document.querySelector(".header-fixed");
+    if (header) {
+        header.classList.toggle("shrink", window.scrollY > 80);
+    }
 });
-
-fetch("sidebar.html") // Đường dẫn đến file sidebar đã tách
-    .then((response) => response.text())
-    .then((data) => {
-        const sidebar = document.getElementById("sidebar-include");
-        if (sidebar) {
-            sidebar.innerHTML = data;
-        }
-    });
