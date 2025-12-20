@@ -41,6 +41,8 @@ function setActiveMenu() {
     });
 }
 
+setActiveMenu();
+
 // Hiệu ứng Header khi cuộn chuột
 window.addEventListener("scroll", () => {
     const header = document.querySelector(".header-fixed");
