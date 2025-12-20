@@ -174,8 +174,88 @@
     font-size: 14px;
 }
 
-/* CONTAINER */
+/* PRODUCTS */
+.nav-item.has-mega {
+    position: static; /* Để mega menu có thể tràn toàn màn hình nếu muốn */
+}
 
+/* Khối mega menu ẩn mặc định */
+.mega-menu {
+    position: absolute;
+    top: 100%; /* Ngay dưới thanh nav */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-top: 2px solid #f39c12; /* Đường kẻ cam như trong ảnh */
+    padding: 20px 0;
+    z-index: 1000;
+    display: none; /* Ẩn đi */
+}
+
+/* Hiển thị khi hover vào thẻ li cha */
+.mega-menu.is-active {
+    display: block;
+}
+
+/* Layout các cột bên trong */
+.mega-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Chia làm 6 cột đều nhau */
+    gap: 20px;
+    padding: 0 15px;
+}
+
+.mega-column {
+    border-right: 1px solid #eee; /* Đường kẻ dọc chia cột */
+    padding-right: 10px;
+}
+
+.mega-column:last-child {
+    border-right: none;
+}
+
+.mega-title {
+    color: #1a4388;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 15px;
+    text-transform: none;
+}
+
+.mega-list {
+    list-style: none;
+    padding: 0;
+}
+
+.mega-list li {
+    margin-bottom: 8px;
+}
+
+.mega-list li a {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.mega-list li a:hover {
+    color: #1a4388;
+    padding-left: 5px;
+}
+
+.view-all {
+    display: inline-block;
+    margin-top: 10px;
+    color: #1a4388;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* CONTAINER */
 /* ===== BANNER ===== */
 .home-banner {
     padding-top: 160px;

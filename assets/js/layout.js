@@ -1,14 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // 1. Kiểm tra xem file hiện tại có nằm trong thư mục 'pages' hay không
     const isInsidePages = window.location.pathname.includes("/pages/");
 
-    // 2. Nếu đang ở trong 'pages', chỉ cần gọi tên file. Nếu ở ngoài, phải thêm 'pages/'
     const headerPath = isInsidePages ? "header.html" : "pages/header.html";
     const footerPath = isInsidePages ? "footer.html" : "pages/footer.html";
     const sidebarPath = isInsidePages ? "sidebar.html" : "pages/sidebar.html";
 
-    // 3. Gọi hàm load cho từng cái
-    loadComponent("header-include", headerPath, setActiveMenu);
+    // CHỈ gọi setActiveMenu ở đây (trong callback của header)
+    loadComponent("header-include", headerPath, function () {
+        setActiveMenu(); // Hàm cũ
+        initMegaMenu(); // Hàm mới thêm vào đây
+    });
+
     loadComponent("footer-include", footerPath);
     loadComponent("sidebar-include", sidebarPath);
 });
@@ -31,17 +33,34 @@ function loadComponent(containerId, filePath, callback) {
 
 // Hàm xử lý Menu Active
 function setActiveMenu() {
-    var links = document.querySelectorAll(".nav-item-link");
-    var currentPath = window.location.pathname;
+    const links = document.querySelectorAll(".nav-item-link");
 
-    links.forEach(function (link) {
-        if (currentPath.includes(link.getAttribute("href"))) {
+    // 1. Lấy tên file thực tế từ URL (ví dụ: product.html hoặc contact.html)
+    // Dùng URLSearchParams hoặc split để lấy phần cuối của path
+    let currentPath = window.location.pathname.split("/").pop();
+
+    // Nếu ở trang chủ (chỉ có / hoặc /index.html)
+    if (currentPath === "" || currentPath === "index.html") {
+        currentPath = "index.html";
+    }
+
+    links.forEach((link) => {
+        // 2. Quan trọng: Luôn xóa sạch class active của mọi link trước khi check
+        link.classList.remove("active");
+
+        // 3. Lấy tên file từ thuộc tính href của link
+        // Ví dụ href="../pages/product.html" -> lấy được "product.html"
+        const hrefValue = link.getAttribute("href");
+        if (!hrefValue) return;
+
+        const linkFile = hrefValue.split("/").pop();
+
+        // 4. So sánh và add active
+        if (currentPath === linkFile) {
             link.classList.add("active");
         }
     });
 }
-
-setActiveMenu();
 
 // Hiệu ứng Header khi cuộn chuột
 window.addEventListener("scroll", () => {
@@ -50,3 +69,22 @@ window.addEventListener("scroll", () => {
         header.classList.toggle("shrink", window.scrollY > 80);
     }
 });
+
+function initMegaMenu() {
+    const productLink = document.querySelector(".has-mega > .nav-item-link");
+    const megaMenu = document.querySelector(".mega-menu");
+    const allLinks = document.querySelectorAll(".nav-item-link");
+
+    if (!productLink || !megaMenu) return;
+
+    productLink.addEventListener("click", function (e) {
+        // Nếu bạn muốn click vào là sáng đèn Sản phẩm ngay lập tức:
+        allLinks.forEach((l) => l.classList.remove("active"));
+        productLink.classList.add("active");
+
+        // Logic đóng mở menu
+        e.preventDefault();
+        e.stopPropagation();
+        megaMenu.classList.toggle("is-active");
+    });
+}
