@@ -121,6 +121,23 @@
     transition: background-color 0.2s ease;
 }
 
+.nav-list-child {
+    padding: 10px;
+    position: absolute;
+    text-align: center;
+    background-color: #ddd;
+    display: none;
+}
+
+.list-child-link {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.nav-item-link .nav-list-child:hover {
+    display: block;
+}
+
 .nav-item-link::after {
     content: "";
     position: absolute;
@@ -234,18 +251,17 @@
     margin-bottom: 8px;
 }
 
-.mega-list li a {
-    text-decoration: none;
-    color: #555;
+.mega-list a {
     font-size: 14px;
-    transition: 0.3s;
+    color: #555;
+    display: inline-block;
+    transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.mega-list li a:hover {
-    color: #1a4388;
-    padding-left: 5px;
+.mega-list a:hover {
+    color: #1a3f8b;
+    transform: translateX(6px);
 }
-
 .view-all {
     display: inline-block;
     margin-top: 10px;
@@ -256,167 +272,160 @@
 }
 
 /* CONTAINER */
-/* ===== BANNER ===== */
-.home-banner {
-    padding-top: 160px;
+/* --- BANNER HOME --- */
+.banner {
     position: relative;
+    margin-top: 160px;
     width: 100%;
-    height: 500px; /* Điều chỉnh chiều cao phù hợp */
-    overflow: hidden;
+    height: 500px; /* Tăng nhẹ chiều cao để không gian thoáng hơn */
+    background: url("../img/bg-hospital-hall.png") no-repeat center center;
+    background-size: cover;
     display: flex;
-    align-items: center;
-    color: #fff;
+    align-items: center; /* Căn giữa nội dung theo chiều dọc */
+    overflow: hidden;
 }
 
-/* Lớp nền bệnh viện */
-.banner-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 85%; /* Thu hẹp lại để lộ phần bên phải */
-    height: 100%;
-    z-index: 1;
-    /* Tạo độ vát chéo cho ảnh nền */
-    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
-}
-
-.banner-bg img {
+.banner-container {
+    display: flex;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    /* background: url("../assets/img/bg-hospital-hall.png") cover / no-repeat
-        center; */
+    position: relative;
+    align-items: center;
 }
 
-/* Thêm một lớp nền phụ màu xanh đậm phía sau cùng (nếu cần giống hình mẫu) */
-.home-banner::before {
+/* Mảng màu xanh bên trái */
+.banner-container::before {
     content: "";
     position: absolute;
     top: 0;
-    right: 0;
-    width: 30%;
+    left: 0;
+    width: 45%;
     height: 100%;
-    background-color: #1a3052; /* Màu xanh đậm của header/footer */
-    z-index: 0;
+    background-color: #1a2a4e;
+    /* Vát từ trên rộng xuống dưới hẹp */
+    clip-path: polygon(0 0, 100% 0, 82% 100%, 0% 100%);
+    z-index: 1;
 }
 
-/* Hình khối màu xanh bên trái */
-.blue-diagonal-shape {
+/* Mảng màu xanh bên phải (Bé hơn và vát ngược hướng) */
+.shape-right {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
+    width: 8%; /* Độ rộng bé như yêu cầu */
     height: 100%;
-    z-index: 2;
-}
-.blue-diagonal-shape img {
-    height: 100%;
-    width: 700px;
+    background-color: #1a2a4e;
+    /* Đổi hướng: Dưới rộng - trên hẹp */
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 0% 100%);
+    z-index: 1;
 }
 
-/* Wrapper nội dung chính */
-.banner-wrapper {
+/* Căn chỉnh nội dung chữ */
+.content {
     position: relative;
-    z-index: 3;
-    width: 100%;
-    max-width: 1300px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 50px;
+    z-index: 5;
+    width: 45%;
+    padding-left: 10%; /* Đẩy chữ vào vùng an toàn */
+    color: white;
 }
 
-/* Phần chữ bên trái */
-.banner-content {
-    flex: 1;
-}
-
-.banner-content h1 {
-    font-size: 28px;
-    font-weight: bold;
-    line-height: 1.2;
-    margin-bottom: 5px;
-}
-
-.banner-content h1 span {
-    font-size: 32px;
-}
-.title-wrapper {
-    display: block;
-    width: fit-content; /* Quan trọng: Nó sẽ ôm sát chiều rộng của chữ h1 */
-    margin-bottom: 20px;
-}
-
-.banner-content h1 {
-    font-size: 3rem;
+.content h1 {
+    font-size: 26px;
     font-weight: 700;
     line-height: 1.3;
-    margin: 0;
-    white-space: nowrap; /* Đảm bảo chữ không bị tự động xuống hàng làm hỏng width */
+    margin-bottom: 15px;
 }
-.orange-line {
-    width: 100%;
+
+.content h1 span {
+    font-size: 32px;
+}
+
+.divider {
+    width: 280px;
     height: 3px;
-    background-color: #f39200; /* Màu cam đặc trưng */
-    margin-bottom: 20px;
+    background-color: #f39c12;
+    margin-bottom: 25px;
 }
 
-.info-list p {
-    font-size: 16px;
-    margin: 8px 0;
-    font-weight: 500;
+.info-list {
+    list-style: none;
+    margin-bottom: 30px;
 }
 
+.info-list li {
+    font-size: 17px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.arrow-bullet {
+    color: #88a0b9;
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+/* Nút chi tiết */
 .btn-detail {
     display: inline-block;
-    margin-top: 20px;
-    padding: 8px 25px;
-    border: 1px solid #fff;
-    color: #fff;
-    text-decoration: none;
+    padding: 10px 25px;
+    border: 1.5px solid #f39c12;
     border-radius: 6px;
-    font-size: 14px;
-    transition: 0.3s;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 .btn-detail:hover {
-    background-color: #f39200;
-    border-color: #f39200;
+    background-color: #f39c12;
 }
 
-/* Hình ảnh sản phẩm bên phải */
-.banner-product-img {
-    flex: 1;
-    text-align: center;
-    padding-right: 10%;
+.btn-arrow {
+    margin-left: 10px;
+    color: #f39c12;
 }
 
-.banner-product-img img {
-    max-height: 400px; /* Để ảnh máy không quá to so với banner */
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+/* Khối ảnh máy móc căn giữa */
+.image-section {
+    position: relative;
+    z-index: 5;
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 5%; /* Tránh đè lên shape phải */
 }
 
-/* Nút điều hướng mũi tên */
+.image-section img {
+    max-height: 420px; /* Cân đối với chiều cao banner */
+    width: auto;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
+}
+
+/* Icon điều hướng (Mũi tên) */
 .arrow {
     position: absolute;
-
-    background: transparent;
-    border: none;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 32px;
     cursor: pointer;
-    z-index: 4;
-}
-
-.prev {
-    left: 20px;
-}
-.next {
-    right: 20px;
+    padding: 20px;
+    transition: 0.3s;
 }
 
 .arrow:hover {
-    color: #fff;
+    color: white;
+    scale: 1.1;
+}
+
+.left-arrow {
+    left: 15px;
+}
+.right-arrow {
+    right: 15px;
 }
 
 /* =========================

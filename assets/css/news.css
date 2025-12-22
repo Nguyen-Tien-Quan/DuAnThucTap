@@ -1,0 +1,101 @@
+.news-container {
+    display: flex;
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.news-main {
+    flex: 3;
+}
+.news-sidebar {
+    flex: 1;
+}
+
+.section-title {
+    color: #1a4388;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+/* Tin tức item */
+.news-item {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.news-item.featured {
+    background: #f9f9f9;
+    padding: 15px;
+}
+
+.news-thumb img {
+    width: 250px;
+    height: 160px;
+    object-fit: cover;
+}
+
+.news-info h3 {
+    color: #1a4388;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.news-date {
+    color: #999;
+    font-size: 0.9rem;
+}
+.news-desc {
+    margin: 10px 0;
+    line-height: 1.5;
+    color: #555;
+}
+
+.btn-detail {
+    display: inline-block;
+    background: #1a4388;
+    color: #fff;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    float: right;
+}
+
+/* Sidebar */
+.sidebar-title {
+    background: #1a4388;
+    color: #fff;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.sidebar-prod-list li {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
+    margin-bottom: 5px;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    gap: 5px;
+    margin-top: 30px;
+}
+
+.pagination a {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: #333;
+}
+
+.pagination a.active {
+    background: #1a4388;
+    color: #fff;
+    border-color: #1a4388;
+}
