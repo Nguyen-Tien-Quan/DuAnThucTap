@@ -4,7 +4,6 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Tuyển dụng</title>
-
         <!-- ICON -->
         <link
             rel="stylesheet"
@@ -18,103 +17,147 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
             rel="stylesheet"
         />
 
-        <!-- RESET -->
+        <!-- RESET CSS (luôn đầu tiên) -->
         <link rel="stylesheet" href="../assets/css/resets.css" />
-        <!-- BASE -->
+
+        <!-- BASE / COMMON STYLE -->
         <link rel="stylesheet" href="../assets/css/base.css" />
-        <!-- MAIN -->
+
+        <!-- MAIN (layout, header, footer, nav...) -->
         <link rel="stylesheet" href="../assets/css/main.css" />
-        <!-- TUYỂN DỤNG -->
+
         <link rel="stylesheet" href="../assets/css/recruitment.css" />
     </head>
-
     <body>
         <main class="app">
-            <!-- HEADER -->
             <div id="header-include"></div>
+            <section class="medical-career">
+                <!-- HERO -->
+                <div class="medical-hero">
+                    <div class="medical-hero-content">
+                        <span class="medical-badge">
+                            <i class="fa-solid fa-staff-snake"></i> TUYỂN DỤNG Y
+                            TẾ
+                        </span>
+                        <h1>
+                            Cơ hội nghề nghiệp <br />
+                            <strong>Ngành Chăm sóc Sức khỏe</strong>
+                        </h1>
+                        <p>
+                            Môi trường chuyên nghiệp – Nhân văn – Phát triển bền
+                            vững
+                        </p>
+                    </div>
+                </div>
 
-            <!-- CONTENT -->
-            <section class="recruit-banner">
-                <div class="recruit-banner-content">
-                    <h1>TUYỂN DỤNG</h1>
-                    <p>Gia nhập đội ngũ của chúng tôi để cùng phát triển</p>
+                <!-- JOBS -->
+                <div class="medical-wrap">
+                    <h2 class="medical-title">Vị trí đang tuyển</h2>
+
+                    <div class="medical-grid">
+                        <!-- Job -->
+                        <div class="medical-job">
+                            <div class="job-med-icon">
+                                <i class="fa-solid fa-user-doctor"></i>
+                            </div>
+
+                            <h3>Bác sĩ Đa khoa</h3>
+
+                            <div class="medical-meta">
+                                <span
+                                    ><i class="fa-solid fa-hospital"></i> Cơ sở
+                                    Hà Nội</span
+                                >
+                                <span
+                                    ><i class="fa-solid fa-clock"></i> Toàn thời
+                                    gian</span
+                                >
+                            </div>
+
+                            <p>
+                                Khám, tư vấn và điều trị cho bệnh nhân theo quy
+                                trình chuyên môn.
+                            </p>
+
+                            <div class="medical-footer">
+                                <span class="medical-salary"
+                                    >💰 Thỏa thuận</span
+                                >
+                                <a href="#" class="medical-apply">Ứng tuyển</a>
+                            </div>
+                        </div>
+
+                        <!-- Job -->
+                        <div class="medical-job featured">
+                            <div class="job-med-icon">
+                                <i class="fa-solid fa-user-nurse"></i>
+                            </div>
+
+                            <h3>Điều dưỡng</h3>
+
+                            <div class="medical-meta">
+                                <span
+                                    ><i class="fa-solid fa-hospital"></i> TP. Hồ
+                                    Chí Minh</span
+                                >
+                                <span
+                                    ><i class="fa-solid fa-clock"></i> Ca
+                                    xoay</span
+                                >
+                            </div>
+
+                            <p>
+                                Chăm sóc bệnh nhân, hỗ trợ bác sĩ trong quá
+                                trình điều trị.
+                            </p>
+
+                            <div class="medical-footer">
+                                <span class="medical-salary"
+                                    >💰 8–12 triệu</span
+                                >
+                                <a href="#" class="medical-apply">Ứng tuyển</a>
+                            </div>
+                        </div>
+
+                        <!-- Job -->
+                        <div class="medical-job">
+                            <div class="job-med-icon">
+                                <i class="fa-solid fa-laptop-medical"></i>
+                            </div>
+
+                            <h3>Nhân viên CNTT Y tế</h3>
+
+                            <div class="medical-meta">
+                                <span
+                                    ><i class="fa-solid fa-hospital"></i> Trung
+                                    tâm dữ liệu</span
+                                >
+                                <span
+                                    ><i class="fa-solid fa-clock"></i> Hành
+                                    chính</span
+                                >
+                            </div>
+
+                            <p>
+                                Quản trị hệ thống CNTT, phần mềm bệnh viện và dữ
+                                liệu y khoa.
+                            </p>
+
+                            <div class="medical-footer">
+                                <span class="medical-salary"
+                                    >💰 12–18 triệu</span
+                                >
+                                <a href="#" class="medical-apply">Ứng tuyển</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            <section class="recruit-container">
-                <div class="recruit-intro">
-                    <h2>Cơ hội nghề nghiệp</h2>
-                    <p>
-                        Chúng tôi luôn tìm kiếm những ứng viên năng động, có
-                        tinh thần học hỏi và mong muốn phát triển lâu dài cùng
-                        công ty.
-                    </p>
-                </div>
-
-                <div class="recruit-list">
-                    <!-- ITEM -->
-                    <div class="recruit-item">
-                        <h3>Nhân viên IT</h3>
-                        <ul>
-                            <li>
-                                <i class="fa-solid fa-location-dot"></i> Hà Nội
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-briefcase"></i> Toàn thời
-                                gian
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-money-bill"></i> Thỏa
-                                thuận
-                            </li>
-                        </ul>
-                        <a href="#" class="recruit-btn">Ứng tuyển</a>
-                    </div>
-
-                    <div class="recruit-item">
-                        <h3>Nhân viên Marketing</h3>
-                        <ul>
-                            <li>
-                                <i class="fa-solid fa-location-dot"></i> TP. Hồ
-                                Chí Minh
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-briefcase"></i> Toàn thời
-                                gian
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-money-bill"></i> Thỏa
-                                thuận
-                            </li>
-                        </ul>
-                        <a href="#" class="recruit-btn">Ứng tuyển</a>
-                    </div>
-
-                    <div class="recruit-item">
-                        <h3>Nhân viên Kinh doanh</h3>
-                        <ul>
-                            <li>
-                                <i class="fa-solid fa-location-dot"></i> Đà Nẵng
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-briefcase"></i> Toàn thời
-                                gian
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-money-bill"></i> Hoa hồng
-                                + lương
-                            </li>
-                        </ul>
-                        <a href="#" class="recruit-btn">Ứng tuyển</a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- FOOTER -->
             <div id="footer-include"></div>
         </main>
 

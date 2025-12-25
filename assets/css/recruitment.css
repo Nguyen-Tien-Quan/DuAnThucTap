@@ -1,110 +1,172 @@
-/* ================= TUYỂN DỤNG BANNER ================= */
-.recruit-banner {
-    padding-top: 200px;
-    height: 360px;
-    background: url("../img/service.png") center / cover no-repeat;
-    position: relative;
+/* ===== MEDICAL CAREER ===== */
+.medical-career {
+    margin-top: 140px;
+    font-family: "Montserrat", sans-serif;
+    background: #f4f9fc;
 }
 
-.recruit-banner::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.45);
-}
-
-.recruit-banner-content {
-    position: relative;
-    z-index: 1;
-    height: 100%;
-    color: #fff;
+/* HERO */
+.medical-hero {
+    height: 420px;
+    background: linear-gradient(
+            135deg,
+            rgba(0, 120, 160, 0.9),
+            rgba(0, 180, 200, 0.85)
+        ),
+        url("../img/medical-bg.jpg") center/cover no-repeat;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    padding-left: 80px;
+    text-align: center;
+    color: #fff;
 }
 
-.recruit-banner-content h1 {
-    font-size: 42px;
-    font-weight: 700;
+.medical-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 13px;
+    margin-bottom: 18px;
 }
 
-.recruit-banner-content p {
-    margin-top: 10px;
-    font-size: 18px;
+.medical-hero h1 {
+    font-size: 38px;
+    line-height: 1.3;
+    margin-bottom: 12px;
 }
 
-/* ================= CONTENT ================= */
-.recruit-container {
+.medical-hero strong {
+    color: #eaffff;
+}
+
+.medical-hero p {
+    font-size: 17px;
+    opacity: 0.95;
+}
+
+/* WRAP */
+.medical-wrap {
     max-width: 1200px;
-    margin: 60px auto;
+    margin: -70px auto 80px;
     padding: 0 20px;
 }
 
-.recruit-intro {
+.medical-title {
     text-align: center;
-    margin-bottom: 50px;
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: #006b8f;
 }
 
-.recruit-intro h2 {
-    font-size: 30px;
-    font-weight: 600;
-}
-
-.recruit-intro p {
-    margin-top: 12px;
-    color: #555;
-}
-
-/* ================= LIST ================= */
-.recruit-list {
+/* GRID */
+.medical-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 
-.recruit-item {
-    border: 1px solid #e5e5e5;
-    padding: 25px;
-    border-radius: 8px;
+/* CARD */
+.medical-job {
+    position: relative;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 20px 45px rgba(0, 120, 160, 0.15);
+    transition: 0.35s;
+}
+
+.medical-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #cdd9e2, #00c6ff);
+    opacity: 0;
+    z-index: -1;
+    transition: 0.35s;
+}
+
+.medical-job:hover::before {
+    opacity: 1;
+}
+
+.medical-job:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0, 120, 160, 0.25);
+}
+
+.medical-job.featured {
+    border: 2px solid #00b4c8;
+}
+
+/* ICON */
+.job-med-icon {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0078a0, #00b4c8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 180, 200, 0.45);
+}
+
+/* TEXT */
+.medical-job h3 {
+    font-size: 20px;
+    color: #005f7a;
+    margin-bottom: 10px;
+}
+
+.medical-meta {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    font-size: 13px;
+    margin-bottom: 14px;
+    color: #5f7f8f;
+}
+
+.medical-meta i {
+    color: #00b4c8;
+    margin-right: 4px;
+}
+
+.medical-job p {
+    font-size: 14px;
+    color: #6b8b9a;
+    margin-bottom: 22px;
+}
+
+/* FOOTER */
+.medical-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.medical-salary {
+    font-weight: 600;
+    color: #005f7a;
+}
+
+.medical-apply {
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #0078a0, #00b4c8);
+    color: #fff;
+    font-size: 14px;
     transition: 0.3s;
 }
 
-.recruit-item:hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-.recruit-item h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
-.recruit-item ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 20px;
-}
-
-.recruit-item li {
-    margin-bottom: 8px;
-    color: #444;
-}
-
-.recruit-item i {
-    margin-right: 8px;
-    color: #0a58ca;
-}
-
-.recruit-btn {
-    display: inline-block;
-    padding: 10px 22px;
-    background: #0a58ca;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-.recruit-btn:hover {
-    background: #084298;
+.medical-apply:hover {
+    box-shadow: 0 12px 30px rgba(0, 180, 200, 0.6);
 }
