@@ -121,11 +121,61 @@
     transition: background-color 0.2s ease;
 }
 
+.nav-item-link-bf::before {
+    content: "";
+    position: absolute;
+
+    bottom: -10px;
+
+    width: 80px;
+    height: 20px;
+    background-color: transparent; /* xanh trong ảnh */
+}
+
+/* Menu cha */
+.nav-item {
+    position: relative;
+    list-style: none;
+}
+
+/* Submenu mặc định ẩn */
+.nav-list-child {
+    position: absolute;
+    margin-top: 20px;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 10;
+}
+
+/* Hiện submenu khi hover vào mục cha */
+.nav-item:hover .nav-list-child {
+    display: block;
+}
+
+/* Link con */
+.list-child-link {
+    display: block;
+    padding: 10px 14px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+.list-child-link:hover {
+    background-color: #f0f0f0;
+    color: #003366;
+}
+
 .nav-list-child {
     padding: 10px;
     position: absolute;
-    text-align: center;
-    background-color: #ddd;
+    background-color: #fff;
     display: none;
 }
 

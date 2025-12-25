@@ -1,0 +1,110 @@
+/* ================= TUYỂN DỤNG BANNER ================= */
+.recruit-banner {
+    padding-top: 200px;
+    height: 360px;
+    background: url("../img/service.png") center / cover no-repeat;
+    position: relative;
+}
+
+.recruit-banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.recruit-banner-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 80px;
+}
+
+.recruit-banner-content h1 {
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.recruit-banner-content p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* ================= CONTENT ================= */
+.recruit-container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.recruit-intro {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.recruit-intro h2 {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.recruit-intro p {
+    margin-top: 12px;
+    color: #555;
+}
+
+/* ================= LIST ================= */
+.recruit-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.recruit-item {
+    border: 1px solid #e5e5e5;
+    padding: 25px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.recruit-item:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.recruit-item h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.recruit-item ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.recruit-item li {
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.recruit-item i {
+    margin-right: 8px;
+    color: #0a58ca;
+}
+
+.recruit-btn {
+    display: inline-block;
+    padding: 10px 22px;
+    background: #0a58ca;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.recruit-btn:hover {
+    background: #084298;
+}
