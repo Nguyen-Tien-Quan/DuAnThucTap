@@ -36,102 +36,242 @@
     <body>
         <main class="app">
             <div id="header-include"></div>
+
             <section class="sv-banner"></section>
 
-            <!-- SERVICE BREADCRUMB -->
-            <div class="sv-breadcrumb">
+            <div class="sv-breadcrumb container">
                 <a href="#">Trang chủ</a> / <span>Tin tức</span>
             </div>
 
-            <section class="news-wrapper">
-                <div class="container news-container">
-                    <div class="news-main">
+            <section class="content">
+                <div class="content-layout container">
+                    <!-- Cột trái: danh sách tin tức -->
+                    <div class="content-left">
                         <h2 class="section-title">
-                            <i class="fa-solid fa-signal"></i> TIN TỨC
+                            <i class="fa-solid fa-bullhorn"></i> TIN TỨC
                         </h2>
 
-                        <div class="news-list">
-                            <article class="news-item featured">
-                                <div class="news-thumb">
-                                    <img
-                                        src="../assets/img/news1.jpg"
-                                        alt="Tin tức"
-                                    />
-                                </div>
-                                <div class="news-info">
-                                    <h3>
-                                        Khi bị nhồi máu cơ tim, bạn chỉ có 10
-                                        giây để cứu tự cứu lấy mình
-                                    </h3>
-                                    <p class="news-date">
-                                        <i class="fa-regular fa-clock"></i>
-                                        23-02-2018
-                                    </p>
-                                    <p class="news-desc">
-                                        Bạn cảm thấy trong ngực có một luồng đau
-                                        nhói, hơn thế nữa nó bắt đầu lan dần đến
-                                        cánh tay và cằm. Ngay lúc này, muốn đến
-                                        bệnh viện gần nhất vẫn còn một đoạn
-                                        nữa...
-                                    </p>
+                        <!-- Tin tức nổi bật -->
+                        <div class="news-item featured">
+                            <div class="news-item__img">
+                                <a href="#"
+                                    ><img
+                                        src="../assets/img/new-1.png"
+                                        alt="Featured News"
+                                /></a>
+                            </div>
+                            <div class="news-item__info">
+                                <h3 class="news-item__title">
+                                    <a href="#"
+                                        >Khi bị nhồi máu cơ tim, bạn chỉ có 10
+                                        giây để cứu tự cứu lấy mình</a
+                                    >
+                                </h3>
+                                <p class="news-item__date">
+                                    <i class="fa-regular fa-clock"></i>
+                                    23-02-2018
+                                </p>
+                                <p class="news-item__desc">
+                                    Bạn cảm thấy trong ngực có một luồng đau
+                                    nhói, hơn thế nữa nó bắt đầu lan đến cánh
+                                    tay và cằm. Ngay lúc này, muốn đến bệnh viện
+                                    gần nhất vẫn còn một đoạn nữa. Tệ hại hơn là
+                                    điều kiện đường xá không thuận lợi, và bạn
+                                    cảm thấy dường như không thể tiếp tục được
+                                    nữa. Làm sao đây? Trước đó bạn đã được đào
+                                    tạo CPR - hồi sức tim phổi.
+                                </p>
+                                <div class="news-item__action">
                                     <a href="#" class="btn-detail"
                                         >CHI TIẾT
-                                        <i class="fa-solid fa-caret-right"></i
+                                        <i class="fa-solid fa-play"></i
                                     ></a>
                                 </div>
-                            </article>
-
-                            <article class="news-item">
-                                <div class="news-thumb">
-                                    <img
-                                        src="../assets/img/news2.jpg"
-                                        alt="Tin tức"
-                                    />
-                                </div>
-                                <div class="news-info">
-                                    <h3>
-                                        Khi bị nhồi máu cơ tim, bạn chỉ có 10
-                                        giây để cứu tự cứu lấy mình
-                                    </h3>
-                                    <p class="news-date">
-                                        <i class="fa-regular fa-clock"></i>
-                                        23-02-2018
-                                    </p>
-                                    <p class="news-desc">
-                                        Bạn cảm thấy trong ngực có một luồng đau
-                                        nhói, hơn thế nữa nó bắt đầu lan dần đến
-                                        cánh tay và cằm...
-                                    </p>
-                                    <a href="#" class="btn-detail"
-                                        >CHI TIẾT
-                                        <i class="fa-solid fa-caret-right"></i
-                                    ></a>
-                                </div>
-                            </article>
+                            </div>
                         </div>
 
+                        <!-- Các tin tức khác (5 thẻ giống nhau) -->
+                        <div class="news-item">
+                            <div class="news-item__img">
+                                <a href="#"
+                                    ><img
+                                        src="../assets/img/new-2.png"
+                                        alt="News Image"
+                                /></a>
+                            </div>
+                            <div class="news-item__info">
+                                <h3 class="news-item__title">
+                                    <a href="#"
+                                        >Khi bị nhồi máu cơ tim, bạn chỉ có 10
+                                        giây để cứu tự cứu lấy mình</a
+                                    >
+                                </h3>
+                                <p class="news-item__date">
+                                    <i class="fa-regular fa-clock"></i>
+                                    23-02-2018
+                                </p>
+                                <p class="news-item__desc">
+                                    Bạn cảm thấy trong ngực có một luồng đau
+                                    nhói, hơn thế nữa nó bắt đầu lan đến cánh
+                                    tay và cằm...
+                                </p>
+                                <div class="news-item__action">
+                                    <a href="#" class="btn-detail"
+                                        >CHI TIẾT
+                                        <i class="fa-solid fa-play"></i
+                                    ></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="news-item">
+                            <div class="news-item__img">
+                                <a href="#"
+                                    ><img
+                                        src="../assets/img/new-2.png"
+                                        alt="News Image"
+                                /></a>
+                            </div>
+                            <div class="news-item__info">
+                                <h3 class="news-item__title">
+                                    <a href="#"
+                                        >Khi bị nhồi máu cơ tim, bạn chỉ có 10
+                                        giây để cứu tự cứu lấy mình</a
+                                    >
+                                </h3>
+                                <p class="news-item__date">
+                                    <i class="fa-regular fa-clock"></i>
+                                    23-02-2018
+                                </p>
+                                <p class="news-item__desc">
+                                    Bạn cảm thấy trong ngực có một luồng đau
+                                    nhói, hơn thế nữa nó bắt đầu lan đến cánh
+                                    tay và cằm...
+                                </p>
+                                <div class="news-item__action">
+                                    <a href="#" class="btn-detail"
+                                        >CHI TIẾT
+                                        <i class="fa-solid fa-play"></i
+                                    ></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="news-item">
+                            <div class="news-item__img">
+                                <a href="#"
+                                    ><img
+                                        src="../assets/img/new-2.png"
+                                        alt="News Image"
+                                /></a>
+                            </div>
+                            <div class="news-item__info">
+                                <h3 class="news-item__title">
+                                    <a href="#"
+                                        >Khi bị nhồi máu cơ tim, bạn chỉ có 10
+                                        giây để cứu tự cứu lấy mình</a
+                                    >
+                                </h3>
+                                <p class="news-item__date">
+                                    <i class="fa-regular fa-clock"></i>
+                                    23-02-2018
+                                </p>
+                                <p class="news-item__desc">
+                                    Bạn cảm thấy trong ngực có một luồng đau
+                                    nhói, hơn thế nữa nó bắt đầu lan đến cánh
+                                    tay và cằm...
+                                </p>
+                                <div class="news-item__action">
+                                    <a href="#" class="btn-detail"
+                                        >CHI TIẾT
+                                        <i class="fa-solid fa-play"></i
+                                    ></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="news-item">
+                            <div class="news-item__img">
+                                <a href="#"
+                                    ><img
+                                        src="../assets/img/new-2.png"
+                                        alt="News Image"
+                                /></a>
+                            </div>
+                            <div class="news-item__info">
+                                <h3 class="news-item__title">
+                                    <a href="#"
+                                        >Khi bị nhồi máu cơ tim, bạn chỉ có 10
+                                        giây để cứu tự cứu lấy mình</a
+                                    >
+                                </h3>
+                                <p class="news-item__date">
+                                    <i class="fa-regular fa-clock"></i>
+                                    23-02-2018
+                                </p>
+                                <p class="news-item__desc">
+                                    Bạn cảm thấy trong ngực có một luồng đau
+                                    nhói, hơn thế nữa nó bắt đầu lan đến cánh
+                                    tay và cằm...
+                                </p>
+                                <div class="news-item__action">
+                                    <a href="#" class="btn-detail"
+                                        >CHI TIẾT
+                                        <i class="fa-solid fa-play"></i
+                                    ></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="news-item">
+                            <div class="news-item__img">
+                                <a href="#"
+                                    ><img
+                                        src="../assets/img/new-2.png"
+                                        alt="News Image"
+                                /></a>
+                            </div>
+                            <div class="news-item__info">
+                                <h3 class="news-item__title">
+                                    <a href="#"
+                                        >Khi bị nhồi máu cơ tim, bạn chỉ có 10
+                                        giây để cứu tự cứu lấy mình</a
+                                    >
+                                </h3>
+                                <p class="news-item__date">
+                                    <i class="fa-regular fa-clock"></i>
+                                    23-02-2018
+                                </p>
+                                <p class="news-item__desc">
+                                    Bạn cảm thấy trong ngực có một luồng đau
+                                    nhói, hơn thế nữa nó bắt đầu lan đến cánh
+                                    tay và cằm...
+                                </p>
+                                <div class="news-item__action">
+                                    <a href="#" class="btn-detail"
+                                        >CHI TIẾT
+                                        <i class="fa-solid fa-play"></i
+                                    ></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Phân trang -->
                         <div class="pagination">
-                            <a href="#" class="active">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">4</a>
-                            <a href="#">5</a>
-                            <a href="#">6</a>
-                            <a href="#">7</a>
-                            <a href="#">8</a>
-                            <a href="#"
-                                ><i class="fa-solid fa-angle-right"></i
-                            ></a>
-                            <a href="#"
-                                ><i class="fa-solid fa-angles-right"></i
-                            ></a>
+                            <a href="#" class="page-num active">1</a>
+                            <a href="#" class="page-num">2</a>
+                            <a href="#" class="page-num">3</a>
+                            <a href="#" class="page-num">4</a>
+                            <a href="#" class="page-num">5</a>
+                            <a href="#" class="page-num">></a>
+                            <a href="#" class="page-num">»</a>
                         </div>
                     </div>
 
-                    <aside class="news-sidebar" id="sidebar-include"></aside>
+                    <!-- Sidebar bên phải -->
+                    <aside class="content-right" id="sidebar-include"></aside>
                 </div>
             </section>
-            <aside class="content-right" id="sidebar-include"></aside>
 
             <div id="footer-include"></div>
         </main>

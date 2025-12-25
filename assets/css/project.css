@@ -1,0 +1,174 @@
+/* Banner (nếu muốn overlay như cũ) */
+.project-banner {
+    margin-top: 80px;
+    height: 400px;
+    background: url("../img/service-banner.png") center/cover no-repeat;
+    position: relative;
+}
+
+/* Breadcrumb */
+.project-breadcrumb {
+    background: #f3f3f3;
+    padding: 15px 80px;
+    font-size: 15px;
+    color: #333;
+}
+
+.project-breadcrumb span {
+    color: #0066cc;
+    font-weight: bold;
+}
+
+/* Content layout */
+.content {
+    width: 100%;
+    display: flex;
+    gap: 40px;
+    padding: 40px 80px;
+}
+
+.content-left {
+    width: 70%;
+}
+
+.content-left h2 {
+    font-size: 36px;
+    color: #003366;
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.content-right {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+/* Featured project */
+.featured-project {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 60px;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.featured-img img {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 10px;
+}
+
+.featured-desc h3 {
+    font-size: 24px;
+    color: #003366;
+    margin-bottom: 20px;
+}
+
+.featured-desc p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.btn-view,
+.btn-detail {
+    display: inline-block;
+    background: #0066cc;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.btn-view:hover,
+.btn-detail:hover {
+    background: #0055aa;
+}
+
+/* Projects grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.project-item {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.project-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.project-item p {
+    padding: 20px 15px;
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Pagination - giống ảnh gốc: số 1 xanh dương */
+.pagination {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.pagination a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 5px;
+    background: #eee;
+    color: #777;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.pagination a.active {
+    background: #0066cc;
+    color: #fff;
+}
+
+.pagination a:hover:not(.active) {
+    background: #ddd;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .content {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .content-right {
+        width: 100%;
+    }
+
+    .featured-project {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -29,11 +29,156 @@
 
         <!-- MAIN (layout, header, footer, nav...) -->
         <link rel="stylesheet" href="../assets/css/main.css" />
+
+        <link rel="stylesheet" href="../assets/css/project.css" />
     </head>
     <body>
-        <main class="app">
+        <main class="main">
             <div id="header-include"></div>
-            <aside class="content-right" id="sidebar-include"></aside>
+
+            <!-- BANNER -->
+            <section class="project-banner"></section>
+
+            <!-- SERVICE BREADCRUMB -->
+            <div class="project-breadcrumb">
+                <a href="#">Trang chủ</a> / <span>Liên hệ</span>
+            </div>
+            <!-- CONTENT CHÍNH -->
+            <section class="content">
+                <!-- LEFT: 70% -->
+                <div class="content-left">
+                    <h2>DỰ ÁN</h2>
+
+                    <!-- Dự án nổi bật (ảnh lớn + mô tả) -->
+                    <div class="featured-project">
+                        <div class="featured-img">
+                            <img
+                                src="https://www.aw2.com/wp-content/uploads/2018/04/AW2-FV-Hospital-Ho-Chi-Minh-City-Vietnam-640.jpg"
+                                alt="Bệnh viện hiện đại FV Hospital"
+                            />
+                        </div>
+                        <div class="featured-desc">
+                            <h3>
+                                Dự án cung cấp thiết bị cho bệnh viện Việt Đức
+                            </h3>
+                            <p>
+                                TM Hi-Tech tự hào là đối tác cung cấp thiết bị y
+                                tế cao cấp cho Bệnh viện Hữu nghị Việt Đức và
+                                nhiều bệnh viện lớn khác. Chúng tôi đã triển
+                                khai thành công các hệ thống máy chụp MRI, CT
+                                Scanner đa lát cắt, phòng mổ hybrid hiện đại,
+                                góp phần nâng cao chất lượng chẩn đoán và điều
+                                trị cho hàng triệu bệnh nhân trên cả nước.
+                            </p>
+                            <a href="#" class="btn-detail">CHI TIẾT →</a>
+                        </div>
+                    </div>
+
+                    <!-- Grid dự án nhỏ -->
+                    <div class="projects-grid">
+                        <a href=""
+                            ><div class="project-item">
+                                <img
+                                    src="https://www.aw2.com/wp-content/uploads/2021/12/AW2-Maternite-FV-Hospital-Ho-Chi-Minh-Ville-Vietnam-3double-201210-HD.jpg"
+                                    alt="Nội thất bệnh viện hiện đại"
+                                />
+                                <p>
+                                    Dự án cung cấp thiết bị cho bệnh viện<br />ngoại
+                                    thành
+                                </p>
+                            </div></a
+                        >
+
+                        <a href="">
+                            <div class="project-item">
+                                <img
+                                    src="https://www.aw2.com/wp-content/uploads/2018/04/AW2-FV-Hospital-Ho-Chi-Minh-City-Vietnam-831.jpg"
+                                    alt="Bệnh viện kính hiện đại"
+                                />
+                                <p>
+                                    Dự án cung cấp thiết bị cho bệnh viện<br />đa
+                                    khoa
+                                </p>
+                            </div>
+                        </a>
+                        <a href=""
+                            ><div class="project-item">
+                                <img
+                                    src="https://healthcaresnapshots.com/wp-content/uploads/sites/5/2019/11/american-international-hospital-1-700x467.jpg"
+                                    alt="Khu hồi sức hiện đại"
+                                />
+                                <p>
+                                    Dự án cung cấp thiết bị cho khu hồi sức<br />tích
+                                    cực
+                                </p>
+                            </div></a
+                        >
+                        <a href=""
+                            ><div class="project-item">
+                                <img
+                                    src="https://dam.northwell.edu/m/5965b0e539477c7c/Drupal-NEWS_North-Shore-University-Hospital-opens-21M-MRI-suite.jpg"
+                                    alt="Máy MRI cao cấp"
+                                />
+                                <p>
+                                    Dự án cung cấp máy chụp MRI<br />3.0 Tesla
+                                </p>
+                            </div></a
+                        >
+                        <a href=""
+                            ><div class="project-item">
+                                <img
+                                    src="https://www.hospitalsmagazine.com/wp-content/uploads/2022/01/Hybrid-OR-1024x683.jpg"
+                                    alt="Phòng mổ hybrid"
+                                />
+                                <p>
+                                    Dự án lắp đặt phòng mổ hybrid<br />hiện đại
+                                </p>
+                            </div></a
+                        >
+                        <div class="project-item">
+                            <img
+                                src="https://cdn-prod.medicalnewstoday.com/content/images/articles/153/153201/ct-scan.jpg"
+                                alt="Máy CT Scanner"
+                            />
+                            <p>Dự án cung cấp máy chụp CT<br />đa lát cắt</p>
+                        </div>
+                        <div class="project-item">
+                            <img
+                                src="https://besconsultants.net/cdn/shop/files/best_glass_facades-1.jpg?v=1737285748&width=3840"
+                                alt="Mặt tiền bệnh viện kính"
+                            />
+                            <p>Dự án trang bị cho bệnh viện<br />hiện đại</p>
+                        </div>
+                        <div class="project-item">
+                            <img
+                                src="https://www.aw2.com/wp-content/uploads/2018/04/AW2-FV-Hospital-Ho-Chi-Minh-City-Vietnam-706.jpg"
+                                alt="Bệnh viện quốc tế"
+                            />
+                            <p>
+                                Dự án cung cấp thiết bị cho bệnh viện<br />quốc
+                                tế
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Pagination (màu cam cho trang hiện tại) -->
+                    <div class="pagination">
+                        <a href="#" class="active">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#">6</a>
+                        <a href="#">7</a>
+                        <a href="#">8</a>
+                        <a href="#">9</a>
+                    </div>
+                </div>
+
+                <!-- RIGHT: 30% sidebar -->
+                <aside class="content-right" id="sidebar-include"></aside>
+            </section>
+
             <div id="footer-include"></div>
         </main>
 

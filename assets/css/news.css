@@ -1,101 +1,212 @@
-.news-container {
-    display: flex;
-    gap: 30px;
-    padding: 20px 0;
+/* --- LAYOUT CHUNG (GIỮ NGUYÊN Ý BẠN) --- */
+/* ================= SERVICE BANNER ================= */
+.sv-banner {
+    margin-top: 80px;
+    padding-top: 140px;
+    height: 460px;
+    background-image: url("../img/service-banner.png");
+    background-size: cover;
+    background-position: center;
+    position: relative;
 }
 
-.news-main {
-    flex: 3;
-}
-.news-sidebar {
-    flex: 1;
-}
-
-.section-title {
-    color: #1a4388;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    font-size: 1.2rem;
-}
-
-/* Tin tức item */
-.news-item {
-    display: flex;
-    gap: 20px;
-    padding: 20px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.news-item.featured {
-    background: #f9f9f9;
-    padding: 15px;
-}
-
-.news-thumb img {
-    width: 250px;
-    height: 160px;
+.sv-banner-img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
-.news-info h3 {
-    color: #1a4388;
-    font-weight: bold;
-    margin-bottom: 10px;
+/* ================= BREADCRUMB ================= */
+.sv-breadcrumb {
+    background: #f3f3f3;
+    padding: 10px 30px;
+    font-size: 14px;
 }
 
-.news-date {
-    color: #999;
-    font-size: 0.9rem;
-}
-.news-desc {
-    margin: 10px 0;
-    line-height: 1.5;
-    color: #555;
-}
-
-.btn-detail {
-    display: inline-block;
-    background: #1a4388;
-    color: #fff;
-    padding: 5px 15px;
-    font-size: 0.8rem;
-    text-decoration: none;
-    float: right;
-}
-
-/* Sidebar */
-.sidebar-title {
-    background: #1a4388;
-    color: #fff;
-    padding: 10px;
-    font-size: 1rem;
-}
-
-.sidebar-prod-list li {
-    display: flex;
-    gap: 10px;
-    padding: 10px;
-    border: 1px solid #eee;
-    margin-bottom: 5px;
-}
-
-/* Pagination */
-.pagination {
-    display: flex;
-    gap: 5px;
-    margin-top: 30px;
-}
-
-.pagination a {
-    padding: 8px 12px;
-    border: 1px solid #ddd;
+.sv-breadcrumb a {
     text-decoration: none;
     color: #333;
 }
 
-.pagination a.active {
-    background: #1a4388;
+.sv-breadcrumb span {
+    color: #0066cc;
+    font-weight: bold;
+}
+
+.content {
+    width: 100%;
+    padding: 20px 30px;
+    box-sizing: border-box;
+}
+
+.content-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.content-left {
+    flex: 0 0 72%;
+    max-width: 72%;
+}
+
+.content-right {
+    flex: 1;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #003366;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* --- CẤU TRÚC NEWS ITEM (DÙNG CHUNG) --- */
+.news-item {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+/* Ảnh bên trái cố định kích thước */
+.news-item__img {
+    flex-shrink: 0;
+    width: 220px;
+    height: 140px;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.news-item__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Nội dung bên phải co giãn */
+.news-item__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Tiêu đề */
+.news-item__title a {
+    font-size: 18px;
+    font-weight: 700;
+    color: #003366;
+    text-decoration: none;
+    line-height: 1.4;
+}
+
+/* Ngày đăng */
+.news-item__date {
+    font-size: 13px;
+    color: #888;
+    margin: 6px 0;
+}
+
+/* Mô tả */
+.news-item__desc {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    text-align: justify;
+}
+
+/* Nút chi tiết */
+.news-item__action {
+    text-align: right;
+}
+
+.btn-detail {
+    margin-top: 30px;
+    display: inline-block;
+    background-color: #003366;
     color: #fff;
-    border-color: #1a4388;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.news-item.featured {
+    background-color: #f2f2f2; /* Nền xám nhạt như ảnh gốc */
+    padding: 20px;
+    border-bottom: none; /* Không cần gạch dưới vì đã có nền */
+}
+
+.news-item.featured .news-item__img {
+    width: 400px;
+    height: 100%; /* Ảnh box đầu to */
+}
+
+.news-item.featured .news-item__title a {
+    font-size: 20px; /* Chữ box đầu to */
+}
+
+/* 2. Các item ở dưới - BÉ LẠI */
+.news-item:not(.featured) .news-item__img {
+    flex: 0 0 240px; /* Ảnh bé lại */
+    height: 150px;
+}
+
+.news-item:not(.featured) .news-item__title a {
+    font-size: 16px; /* Chữ bé lại */
+}
+
+/* PHÂN TRANG */
+.pagination {
+    display: flex;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.page-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #ddd;
+    color: #666;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.page-num.active {
+    background-color: #003366;
+    color: white;
+    border-color: #003366;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .content-layout {
+        flex-direction: column;
+    }
+    .content-left,
+    .content-right {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .news-item.featured .news-item__img,
+    .news-item:not(.featured) .news-item__img {
+        flex: 0 0 auto;
+        width: 100%;
+        height: auto;
+    }
 }

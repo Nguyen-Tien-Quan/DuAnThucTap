@@ -1,49 +1,553 @@
 <!DOCTYPE html>
 <html lang="vi">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Banner Thiết Bị Y Tế</title>
-        <link rel="stylesheet" href="style.css" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>
+            Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây để cứu tự cứu lấy mình
+        </title>
+        <meta
+            name="description"
+            content="Nhận biết triệu chứng nhồi máu cơ tim và tầm quan trọng của CPR."
+        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                --bg: #f7f8fb;
+                --card-bg: #ffffff;
+                --text: #1b1f23;
+                --muted: #6b7280;
+                --accent: #e11d48; /* hồng đậm */
+                --accent-600: #be123c;
+                --ring: rgba(225, 29, 72, 0.3);
+                --border: #e5e7eb;
+            }
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --bg: #0b0e11;
+                    --card-bg: #111418;
+                    --text: #e5e7eb;
+                    --muted: #9aa3af;
+                    --accent: #fb7185;
+                    --accent-600: #f43f5e;
+                    --ring: rgba(251, 113, 133, 0.25);
+                    --border: #1f2937;
+                }
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+            html,
+            body {
+                height: 100%;
+            }
+            body {
+                margin: 0;
+                font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto,
+                    Arial, sans-serif;
+                color: var(--text);
+                background: var(--bg);
+                line-height: 1.6;
+            }
+
+            .container {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 24px;
+            }
+
+            header.site-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+                padding: 8px 0 24px;
+                border-bottom: 1px solid var(--border);
+            }
+            .brand {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+            .brand .logo {
+                width: 40px;
+                height: 40px;
+                border-radius: 8px;
+                background: linear-gradient(
+                    135deg,
+                    var(--accent),
+                    var(--accent-600)
+                );
+                box-shadow: 0 8px 24px rgba(225, 29, 72, 0.25);
+            }
+            .brand .title {
+                font-weight: 700;
+                font-size: 18px;
+            }
+            .tools {
+                display: flex;
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+            .tools input[type="search"] {
+                padding: 10px 12px;
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                background: var(--card-bg);
+                color: var(--text);
+                min-width: 220px;
+            }
+            .tools .date-badge {
+                padding: 10px 12px;
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                background: var(--card-bg);
+                color: var(--muted);
+                font-weight: 600;
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+                padding: 24px 0;
+            }
+            @media (max-width: 960px) {
+                .grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+            @media (max-width: 640px) {
+                .grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .card {
+                display: flex;
+                flex-direction: column;
+                background: var(--card-bg);
+                border: 1px solid var(--border);
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+                transition: transform 0.2s ease, box-shadow 0.2s ease,
+                    border-color 0.2s ease;
+            }
+            .card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+                border-color: transparent;
+                outline: 2px solid var(--ring);
+                outline-offset: 0;
+            }
+
+            .card-media {
+                position: relative;
+                aspect-ratio: 16/9;
+                background: #ccc;
+            }
+            .card-media img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+            .card-body {
+                padding: 16px 16px 12px;
+            }
+            .headline {
+                font-size: 18px;
+                font-weight: 700;
+                margin: 0 0 6px;
+            }
+            .meta {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 13px;
+                color: var(--muted);
+                margin-bottom: 10px;
+            }
+            .meta .dot {
+                width: 4px;
+                height: 4px;
+                background: var(--muted);
+                border-radius: 50%;
+            }
+            .excerpt {
+                font-size: 14px;
+                color: var(--text);
+                margin: 0 0 12px;
+            }
+            .card-footer {
+                display: flex;
+                justify-content: flex-end;
+                padding: 0 16px 16px;
+            }
+            .btn {
+                padding: 10px 14px;
+                border-radius: 10px;
+                border: none;
+                background: var(--accent);
+                color: #fff;
+                font-weight: 600;
+                cursor: pointer;
+                transition: background 0.2s ease, transform 0.06s ease;
+            }
+            .btn:hover {
+                background: var(--accent-600);
+            }
+            .btn:active {
+                transform: scale(0.98);
+            }
+
+            /* Modal */
+            .modal-backdrop {
+                position: fixed;
+                inset: 0;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                background: rgba(0, 0, 0, 0.35);
+                z-index: 50;
+                padding: 20px;
+            }
+            .modal {
+                width: 100%;
+                max-width: 720px;
+                background: var(--card-bg);
+                color: var(--text);
+                border: 1px solid var(--border);
+                border-radius: 16px;
+                box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+                overflow: hidden;
+            }
+            .modal-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 16px 20px;
+                border-bottom: 1px solid var(--border);
+            }
+            .modal-title {
+                font-weight: 700;
+            }
+            .modal-body {
+                padding: 16px 20px;
+            }
+            .modal-actions {
+                display: flex;
+                justify-content: flex-end;
+                gap: 8px;
+                padding: 16px 20px;
+                border-top: 1px solid var(--border);
+            }
+            .btn-secondary {
+                background: transparent;
+                color: var(--text);
+                border: 1px solid var(--border);
+            }
+
+            footer {
+                padding: 24px 0;
+                color: var(--muted);
+                font-size: 13px;
+                border-top: 1px solid var(--border);
+            }
+
+            /* Ảnh demo: dùng gradient nếu chưa có ảnh thật */
+            .image-fallback {
+                background: linear-gradient(
+                    135deg,
+                    #fda4af,
+                    #fb7185 50%,
+                    #f43f5e
+                );
+            }
+        </style>
     </head>
-    <style></style>
     <body>
-        <div class="banner">
-            <div class="arrow left-arrow">&#10094;</div>
-            <div class="arrow right-arrow">&#10095;</div>
+        <div class="container">
+            <header class="site-header" aria-label="Tiêu đề trang">
+                <div class="brand">
+                    <div class="logo" aria-hidden="true"></div>
+                    <div class="title">Nhồi máu cơ tim & CPR</div>
+                </div>
+                <div class="tools">
+                    <input
+                        type="search"
+                        id="search"
+                        placeholder="Tìm theo nội dung..."
+                        aria-label="Tìm kiếm bài viết"
+                    />
+                    <div class="date-badge" aria-label="Ngày">23-02-2018</div>
+                </div>
+            </header>
 
-            <div class="banner-container">
-                <div class="content">
-                    <h1>
-                        HỆ THỐNG GÂY MÊ KÈM THỞ <br />
-                        PASITHEC HEYER
-                    </h1>
-                    <div class="divider"></div>
-                    <ul class="info-list">
-                        <li>
-                            <span class="arrow-bullet">===></span> Model:
-                            Pasithec
-                        </li>
-                        <li>
-                            <span class="arrow-bullet">===></span> Hãng sản
-                            xuất: HEYER
-                        </li>
-                        <li>
-                            <span class="arrow-bullet">===></span> Nước sản
-                            xuất: ĐỨC
-                        </li>
-                    </ul>
-                    <a href="#" class="btn-detail"
-                        >Chi tiết <span class="btn-arrow">></span></a
+            <main aria-label="Danh sách bài viết">
+                <section class="grid">
+                    <!-- Bạn có thể thay src ảnh bằng ảnh thật -->
+                    <article
+                        class="card"
+                        data-title="Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây để cứu tự cứu lấy mình"
                     >
-                </div>
+                        <div class="card-media image-fallback">
+                            <img alt="Người cao tuổi được hỗ trợ y tế" src="" />
+                        </div>
+                        <div class="card-body">
+                            <h2 class="headline">
+                                Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây để
+                                cứu tự cứu lấy mình
+                            </h2>
+                            <div class="meta">
+                                <span>23-02-2018</span><span class="dot"></span
+                                ><span>Sức khỏe tim mạch</span>
+                            </div>
+                            <p class="excerpt">
+                                Bạn cảm thấy trong ngực có một luồng đau nhói,
+                                hơn thế nữa nó bắt đầu lan đến cánh tay và cằm.
+                                Ngay lúc này, muốn đến bệnh viện gần nhất vẫn
+                                còn một đoạn nữa...
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" data-detail>CHI TIẾT</button>
+                        </div>
+                    </article>
 
-                <div class="image-section">
-                    <img src="URL_ANH_MAY_CUA_BAN" alt="Máy y tế" />
-                </div>
+                    <!-- Lặp lại 5 thẻ giống nhau theo ảnh -->
+                    <article
+                        class="card"
+                        data-title="Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây để cứu tự cứu lấy mình"
+                    >
+                        <div class="card-media image-fallback">
+                            <img alt="Gia đình và sức khỏe tim mạch" src="" />
+                        </div>
+                        <div class="card-body">
+                            <h2 class="headline">
+                                Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây để
+                                cứu tự cứu lấy mình
+                            </h2>
+                            <div class="meta">
+                                <span>23-02-2018</span><span class="dot"></span
+                                ><span>Sức khỏe tim mạch</span>
+                            </div>
+                            <p class="excerpt">
+                                Bạn cảm thấy trong ngực có một luồng đau nhói,
+                                hơn thế nữa nó bắt đầu lan đến cánh tay và cằm.
+                                Ngay lúc này, muốn đến bệnh viện gần nhất vẫn
+                                còn một đoạn nữa...
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" data-detail>CHI TIẾT</button>
+                        </div>
+                    </article>
 
-                <div class="shape-right"></div>
+                    <article
+                        class="card"
+                        data-title="Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây để cứu tự cứu lấy mình"
+                    >
+                        <div class="card-media image-fallback">
+                            <img
+                                alt="Cặp đôi và nhận biết triệu chứng"
+                                src=""
+                            />
+                        </div>
+                        <div class="card-body">
+                            <h2 class="headline">
+                                Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây để
+                                cứu tự cứu lấy mình
+                            </h2>
+                            <div class="meta">
+                                <span>23-02-2018</span><span class="dot"></span
+                                ><span>Sức khỏe tim mạch</span>
+                            </div>
+                            <p class="excerpt">
+                                Ngay lúc này, đường xá không thuận lợi, và bạn
+                                cảm thấy dường như không thể tiếp tục được nữa.
+                                Làm sao đây?
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" data-detail>CHI TIẾT</button>
+                        </div>
+                    </article>
+
+                    <article
+                        class="card"
+                        data-title="Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây để cứu tự cứu lấy mình"
+                    >
+                        <div class="card-media image-fallback">
+                            <img alt="Người cao tuổi và CPR" src="" />
+                        </div>
+                        <div class="card-body">
+                            <h2 class="headline">
+                                Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây để
+                                cứu tự cứu lấy mình
+                            </h2>
+                            <div class="meta">
+                                <span>23-02-2018</span><span class="dot"></span
+                                ><span>Sức khỏe tim mạch</span>
+                            </div>
+                            <p class="excerpt">
+                                Trước đó bạn đã được đào tạo CPR - hồi sức tim
+                                phổi. Biết áp dụng đúng lúc có thể cứu sống bạn
+                                hoặc người khác.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" data-detail>CHI TIẾT</button>
+                        </div>
+                    </article>
+
+                    <article
+                        class="card"
+                        data-title="Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây để cứu tự cứu lấy mình"
+                    >
+                        <div class="card-media image-fallback">
+                            <img alt="Gia đình và cấp cứu" src="" />
+                        </div>
+                        <div class="card-body">
+                            <h2 class="headline">
+                                Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây để
+                                cứu tự cứu lấy mình
+                            </h2>
+                            <div class="meta">
+                                <span>23-02-2018</span><span class="dot"></span
+                                ><span>Sức khỏe tim mạch</span>
+                            </div>
+                            <p class="excerpt">
+                                Triệu chứng điển hình: đau ngực lan ra tay trái
+                                và hàm, vã mồ hôi, khó thở, buồn nôn. Hãy tìm
+                                trợ giúp y tế ngay.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" data-detail>CHI TIẾT</button>
+                        </div>
+                    </article>
+
+                    <article
+                        class="card"
+                        data-title="Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây để cứu tự cứu lấy mình"
+                    >
+                        <div class="card-media image-fallback">
+                            <img alt="Cộng đồng và giáo dục CPR" src="" />
+                        </div>
+                        <div class="card-body">
+                            <h2 class="headline">
+                                Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây để
+                                cứu tự cứu lấy mình
+                            </h2>
+                            <div class="meta">
+                                <span>23-02-2018</span><span class="dot"></span
+                                ><span>Sức khỏe tim mạch</span>
+                            </div>
+                            <p class="excerpt">
+                                Tập huấn CPR thường xuyên giúp bạn tự tin trong
+                                tình huống khẩn cấp. Kiến thức đúng cứu được
+                                mạng người.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn" data-detail>CHI TIẾT</button>
+                        </div>
+                    </article>
+                </section>
+            </main>
+
+            <footer>
+                © 2018–2025 Sức khỏe tim mạch. Nội dung mang tính tham khảo, hãy
+                liên hệ cơ sở y tế khi khẩn cấp.
+            </footer>
+        </div>
+
+        <!-- Modal chi tiết -->
+        <div
+            class="modal-backdrop"
+            id="modalBackdrop"
+            role="dialog"
+            aria-modal="true"
+            aria-hidden="true"
+        >
+            <div class="modal">
+                <div class="modal-header">
+                    <div class="modal-title" id="modalTitle">Chi tiết</div>
+                    <button
+                        class="btn btn-secondary"
+                        id="closeModal"
+                        aria-label="Đóng"
+                    >
+                        Đóng
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <p>
+                        Bạn cảm thấy trong ngực có một luồng đau nhói, lan đến
+                        cánh tay và cằm. Khi ở xa bệnh viện, hãy tìm sự trợ giúp
+                        y tế ngay lập tức. Nếu người bệnh ngừng thở hoặc mất ý
+                        thức, áp dụng CPR nếu đã được đào tạo và gọi cấp cứu.
+                    </p>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" id="dismissModal">
+                        Đã hiểu
+                    </button>
+                </div>
             </div>
         </div>
+
+        <script>
+            // Mở modal khi bấm “CHI TIẾT”
+            const backdrop = document.getElementById("modalBackdrop");
+            const closeModalBtn = document.getElementById("closeModal");
+            const dismissModalBtn = document.getElementById("dismissModal");
+
+            document.querySelectorAll("[data-detail]").forEach((btn) => {
+                btn.addEventListener("click", (e) => {
+                    const card = e.target.closest(".card");
+                    const title = card?.dataset?.title || "Chi tiết";
+                    document.getElementById("modalTitle").textContent = title;
+                    document.getElementById("modalBody").innerHTML = `
+          <p>
+            Bạn cảm thấy trong ngực có một luồng đau nhói, hơn thế nữa nó bắt đầu lan đến cánh tay và cằm.
+            Ngay lúc này, muốn đến bệnh viện gần nhất vẫn còn một đoạn nữa. Tệ hại hơn là điều kiện đường xá không thuận lợi,
+            và bạn cảm thấy dường như không thể tiếp tục được nữa. Làm sao đây? Trước đó bạn đã được đào tạo CPR - hồi sức tim phổi.
+          </p>`;
+                    backdrop.style.display = "flex";
+                    backdrop.setAttribute("aria-hidden", "false");
+                });
+            });
+
+            function closeModal() {
+                backdrop.style.display = "none";
+                backdrop.setAttribute("aria-hidden", "true");
+            }
+            closeModalBtn.addEventListener("click", closeModal);
+            dismissModalBtn.addEventListener("click", closeModal);
+            backdrop.addEventListener("click", (e) => {
+                if (e.target === backdrop) closeModal();
+            });
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape") closeModal();
+            });
+
+            // Tìm kiếm nội dung
+            const searchInput = document.getElementById("search");
+            searchInput.addEventListener("input", () => {
+                const q = searchInput.value.trim().toLowerCase();
+                document.querySelectorAll(".card").forEach((card) => {
+                    const text = card.innerText.toLowerCase();
+                    card.style.display = text.includes(q) ? "" : "none";
+                });
+            });
+        </script>
     </body>
 </html>

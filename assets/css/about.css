@@ -43,6 +43,7 @@
     display: flex;
     gap: 30px;
     padding: 30px 80px;
+    width: 100%;
 }
 
 /* LEFT CONTENT */
@@ -156,4 +157,15 @@
 .contact-info p {
     margin-bottom: 14px;
     line-height: 1.8;
+}
+@media (max-width: 1024px) {
+    .content {
+        flex-direction: column; /* Xếp chồng dọc */
+        padding: 20px; /* Giảm padding xuống cho thoáng */
+    }
+
+    .content-left,
+    .content-right {
+        width: 100%; /* Cả hai chiếm hết chiều ngang */
+    }
 }
