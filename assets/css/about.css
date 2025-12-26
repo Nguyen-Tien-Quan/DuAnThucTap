@@ -29,7 +29,7 @@
 /* ================= BREADCRUMB ================= */
 .breadcrumb {
     background: #f3f3f3;
-    padding: 10px 80px;
+    padding: 10px 30px;
     font-size: 14px;
 }
 
@@ -42,16 +42,17 @@
 .content {
     display: flex;
     gap: 30px;
-    padding: 30px 80px;
+    padding-left: 0;
     width: 100%;
 }
 
 /* LEFT CONTENT */
 .content-left {
     width: 70%;
-    font-size: 17px; /* ⭐ TĂNG CỠ CHỮ */
+    font-size: 1.7rem; /* ⭐ TĂNG CỠ CHỮ */
     line-height: 1.9; /* ⭐ GIÃN DÒNG */
     color: #333;
+    padding: 30px;
 }
 
 /* TITLE */
@@ -98,6 +99,7 @@
 /* ================= RIGHT SIDEBAR ================= */
 .content-right {
     width: 30%;
+    padding-right: 30px;
 }
 
 .box {
@@ -120,52 +122,4 @@
 .box li {
     padding: 8px 0;
     border-bottom: 1px solid #eee;
-}
-
-/* ================= NEWS ================= */
-.news-item {
-    display: flex;
-    gap: 10px;
-    padding: 10px;
-}
-
-.news-item img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-}
-
-/* ================= CAM KẾT ================= */
-.commit {
-    padding-left: 20px;
-    margin-bottom: 20px;
-}
-
-.commit li {
-    margin-bottom: 10px;
-    line-height: 1.7;
-}
-
-/* ================= SLOGAN ================= */
-.slogan {
-    font-weight: 600;
-    margin: 20px 0;
-    font-style: italic;
-}
-
-/* ================= CONTACT INFO ================= */
-.contact-info p {
-    margin-bottom: 14px;
-    line-height: 1.8;
-}
-@media (max-width: 1024px) {
-    .content {
-        flex-direction: column; /* Xếp chồng dọc */
-        padding: 20px; /* Giảm padding xuống cho thoáng */
-    }
-
-    .content-left,
-    .content-right {
-        width: 100%; /* Cả hai chiếm hết chiều ngang */
-    }
 }
