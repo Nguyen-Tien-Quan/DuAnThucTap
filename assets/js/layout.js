@@ -53,37 +53,61 @@ function setActiveMenu() {
     });
 }
 
-// Mega menu trên desktop (hover)
+// Mega menu PC HOÀN HẢO - Hover vào "Sản phẩm" là bung, hover ra là thụt
 function initMegaMenu() {
     const hasMegaItem = document.querySelector(".nav-item.has-mega");
     const megaMenu = document.querySelector(".mega-menu");
 
     if (!hasMegaItem || !megaMenu) return;
 
-    // Desktop: hover
+    let hoverTimeout;
+
+    // Hover VÀO nav-item.has-mega → MỞ NGAY
     hasMegaItem.addEventListener("mouseenter", () => {
         if (window.innerWidth > 767) {
+            clearTimeout(hoverTimeout);
             megaMenu.classList.add("is-active");
         }
     });
+
+    // Hover RA nav-item.has-mega → ĐÓNG SAU 150ms (chống giật)
     hasMegaItem.addEventListener("mouseleave", () => {
         if (window.innerWidth > 767) {
-            megaMenu.classList.remove("is-active");
+            hoverTimeout = setTimeout(() => {
+                megaMenu.classList.remove("is-active");
+            }, 150);
         }
     });
 
-    // Mobile: click để mở/đóng (không nhảy trang)
+    // Hover VÀO mega-menu → GIỮ MỞ
+    megaMenu.addEventListener("mouseenter", () => {
+        if (window.innerWidth > 767) {
+            clearTimeout(hoverTimeout);
+            megaMenu.classList.add("is-active");
+        }
+    });
+
+    // Hover RA mega-menu → ĐÓNG
+    megaMenu.addEventListener("mouseleave", () => {
+        if (window.innerWidth > 767) {
+            hoverTimeout = setTimeout(() => {
+                megaMenu.classList.remove("is-active");
+            }, 150);
+        }
+    });
+
+    // Mobile click toggle (KHÔNG đụng desktop)
     const productLink = hasMegaItem.querySelector(".nav-item-link");
-    productLink.addEventListener("click", (e) => {
-        if (window.innerWidth <= 767) {
-            e.preventDefault();
-            hasMegaItem.classList.toggle("active");
-        }
-    });
+    if (productLink) {
+        productLink.addEventListener("click", (e) => {
+            if (window.innerWidth <= 767) {
+                e.preventDefault();
+                hasMegaItem.classList.toggle("active");
+            }
+        });
+    }
 }
-
 // ===== PHẦN MOBILE MENU CẢI THIỆN MỚI =====
-
 function initMobileMenu() {
     const menuToggle = document.querySelector(".menu-toggle");
     const navList = document.querySelector(".nav-list");
@@ -119,7 +143,7 @@ function initMobileMenu() {
     // Nút X (click vào vùng ::before)
     navList.addEventListener("click", (e) => {
         if (
-            e.target === navList.querySelector("::before") ||
+            e.target === navList ||
             (e.clientX > navList.offsetWidth - 70 && e.clientY < 70)
         ) {
             closeMenu();
@@ -131,21 +155,41 @@ function initMobileMenu() {
         if (e.target === nav) closeMenu();
     });
 
-    // Accordion cho item có submenu
+    // Accordion cho item có submenu - PHIÊN BẢN CẢI THIỆN: click lần 2 mới đi link
     document.querySelectorAll(".nav-item > .nav-item-link").forEach((link) => {
         link.addEventListener("click", function (e) {
-            if (window.innerWidth <= 767) {
-                const parent = this.parentElement;
-                if (
-                    parent.classList.contains("has-mega") ||
-                    parent.querySelector(".nav-list-child")
-                ) {
-                    e.preventDefault();
-                    parent.classList.toggle("active");
-                } else {
-                    closeMenu(); // link thường thì đóng menu sau khi click
-                }
+            if (window.innerWidth > 767) return; // Chỉ xử lý trên mobile
+
+            const parent = this.parentElement;
+            const hasSubmenu =
+                parent.querySelector(".nav-list-child") ||
+                parent.classList.contains("has-mega");
+
+            if (!hasSubmenu) {
+                // Link bình thường → chuyển trang và đóng menu
+                closeMenu();
+                return;
             }
+
+            // Có submenu
+            e.preventDefault(); // Luôn chặn link mặc định để kiểm soát hành vi
+
+            const isActive = parent.classList.contains("active");
+
+            if (isActive) {
+                // Đang mở → lần click thứ 2: cho phép chuyển trang
+                window.location.href = this.getAttribute("href");
+                return;
+            }
+
+            // Lần click đầu: đóng các item khác, mở item hiện tại
+            document.querySelectorAll(".nav-item.active").forEach((item) => {
+                if (item !== parent) {
+                    item.classList.remove("active");
+                }
+            });
+
+            parent.classList.add("active");
         });
     });
 

@@ -21,10 +21,8 @@
 
 /* Content layout */
 .content {
-    width: 100%;
     display: flex;
-    margin: 0 auto;
-    gap: 40px;
+    gap: 30px;
     padding: 40px 30px;
 }
 
@@ -42,8 +40,7 @@
 }
 
 .content-right {
-    width: 300px;
-    flex-shrink: 0;
+    width: 30%;
 }
 
 /* Featured project */
@@ -53,7 +50,7 @@
     margin-bottom: 60px;
     align-items: center;
     flex-direction: row;
-    padding: 10px;
+    padding: 10px 0;
 }
 
 .featured-img img {
@@ -63,9 +60,10 @@
 }
 
 .featured-desc h3 {
-    font-size: 24px;
+    font-size: 20px;
     color: #003366;
     margin-bottom: 20px;
+    line-height: 1.6;
 }
 
 .featured-desc p {
@@ -105,6 +103,13 @@
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
+    transition: all 0.3s ease;
+    transform: translateY(0);
+}
+
+.project-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 .project-item img {
@@ -149,25 +154,181 @@
     border-color: #003366;
 }
 
-/* Responsive */
+/* ================= RESPONSIVE TRANG DỰ ÁN - HOÀN CHỈNH ================= */
+
+/* Tablet lớn & màn hình trung bình (≤1024px) */
 @media (max-width: 1024px) {
     .content {
         flex-direction: column;
-        padding: 20px;
+        padding: 30px 20px;
+        gap: 40px;
+    }
+
+    .content-left {
+        width: 100%;
     }
 
     .content-right {
         width: 100%;
+        order: 2; /* Đẩy sidebar xuống dưới */
     }
 
+    /* Featured project: xếp dọc, ảnh full hơn */
     .featured-project {
         flex-direction: column;
         text-align: center;
+        gap: 30px;
+    }
+
+    .featured-img {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .featured-img img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+    }
+
+    .featured-desc h3 {
+        font-size: 22px;
+    }
+
+    .featured-desc p {
+        font-size: 16px;
+    }
+
+    /* Grid dự án: 2 cột thay vì auto-fit */
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    /* Breadcrumb đồng bộ padding */
+    .project-breadcrumb {
+        padding: 12px 20px;
+        font-size: 14.5px;
     }
 }
 
+/* Tablet nhỏ & Mobile lớn (≤768px) */
 @media (max-width: 768px) {
+    .project-banner {
+        margin-top: 70px;
+        height: 320px;
+    }
+
+    .content-left h2 {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+
+    .featured-project {
+        gap: 25px;
+    }
+
+    .featured-desc h3 {
+        font-size: 20px;
+    }
+
+    .featured-desc p {
+        font-size: 15.5px;
+        line-height: 1.75;
+    }
+
+    .btn-detail {
+        padding: 12px 28px;
+        font-size: 14.5px;
+    }
+
+    /* Grid: 1 cột trên mobile */
     .projects-grid {
         grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .project-item img {
+        height: 240px;
+    }
+
+    .project-item p {
+        font-size: 16px;
+        min-height: auto;
+        padding: 25px 15px;
+    }
+
+    /* Pagination dễ bấm hơn */
+    .pagination {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .page-num {
+        width: 40px;
+        height: 40px;
+        font-size: 15px;
+    }
+}
+
+/* Mobile nhỏ (≤480px) */
+@media (max-width: 480px) {
+    .project-banner {
+        margin-top: 60px;
+        height: 280px;
+    }
+
+    .content {
+        padding: 25px 15px;
+    }
+
+    .content-left h2 {
+        font-size: 24px;
+        margin-bottom: 35px;
+    }
+
+    .featured-img img {
+        border-radius: 10px;
+    }
+
+    .featured-desc h3 {
+        font-size: 19px;
+    }
+
+    .featured-desc p {
+        font-size: 15px;
+    }
+
+    .project-item img {
+        height: 200px;
+    }
+
+    .project-item p {
+        font-size: 15.5px;
+        padding: 20px 12px;
+    }
+
+    .project-breadcrumb {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .page-num {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+}
+
+/* Mobile rất nhỏ (≤360px) - hỗ trợ tốt */
+@media (max-width: 360px) {
+    .project-item img {
+        height: 180px;
+    }
+
+    .content-left h2 {
+        font-size: 22px;
     }
 }

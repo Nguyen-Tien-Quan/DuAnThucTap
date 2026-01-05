@@ -8,9 +8,7 @@
     z-index: 9999;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
-.header-fixed.shrink .header {
-    padding: 10px 30px;
-}
+
 .header {
     display: flex;
     padding: 10px 30px;
@@ -129,7 +127,7 @@
 
     width: 80px;
     height: 20px;
-    background-color: transparent; /* xanh trong ảnh */
+    background-color: transparent;
 }
 
 /* Menu cha */
@@ -193,9 +191,8 @@
     position: absolute;
     left: 50%;
     bottom: 0;
-    width: 0;
     height: 3px;
-    background-color: #f39c12; /* xanh trong ảnh */
+    background-color: #f39c12;
     transition: all 0.3s ease;
     transform: translateX(-50%);
 }
@@ -217,6 +214,7 @@
 }
 
 .nav-search {
+    position: relative;
     display: flex;
     align-items: center;
     padding: 2px 6px;
@@ -235,10 +233,19 @@
 }
 
 .nav-search-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
     border: none;
     background: transparent;
     cursor: pointer;
     font-size: 14px;
+    padding: 10px 4px 10px 10px;
+}
+
+.nav-search-btn:hover {
+    opacity: 0.5;
 }
 
 /* PRODUCTS */
@@ -320,15 +327,21 @@
     text-decoration: none;
     font-weight: 500;
 }
-
+.project-breadcrumb span {
+    color: #0066cc;
+    font-weight: bold;
+}
 /* CONTAINER */
-/* --- BANNER HOME --- */
+
+.containers {
+    overflow-x: hidden;
+}
 .banner {
     position: relative;
     margin-top: 160px;
     width: 100%;
     height: 500px; /* Tăng nhẹ chiều cao để không gian thoáng hơn */
-    background: url("../img/bg-hospital-hall.png") no-repeat center center;
+    background: url("../img/bg-hospital-2.png") no-repeat center center;
     background-size: cover;
     display: flex;
     align-items: center; /* Căn giữa nội dung theo chiều dọc */
@@ -357,6 +370,10 @@
     z-index: 1;
 }
 
+.product-banner {
+    display: none;
+}
+
 /* Mảng màu xanh bên phải (Bé hơn và vát ngược hướng) */
 .shape-right {
     position: absolute;
@@ -371,7 +388,7 @@
 }
 
 /* Căn chỉnh nội dung chữ */
-.content {
+.contents {
     position: relative;
     z-index: 5;
     width: 45%;
@@ -379,14 +396,14 @@
     color: white;
 }
 
-.content h1 {
+.contents h1 {
     font-size: 26px;
     font-weight: 700;
     line-height: 1.3;
     margin-bottom: 15px;
 }
 
-.content h1 span {
+.contents h1 span {
     font-size: 32px;
 }
 
@@ -851,6 +868,9 @@
 
 /* FOOTER */
 .footer {
+    overflow-x: hidden; /* Tránh nội dung footer tràn ngang */
+    box-sizing: border-box; /* Đảm bảo padding không làm tràn */
+    width: 100%;
     background-color: #0f2137;
     color: #eaf2fb;
     padding: 32px 30px 20px;
@@ -1006,55 +1026,408 @@
 .footer-social a:hover {
     background: rgba(255, 255, 255, 0.15);
 }
-
-/* Responsive: xếp dọc khi màn hình nhỏ */
-/* ================== FOOTER RESPONSIVE - CHỈ THÊM THÔI ================== */
-
-/* Tablet: màn hình từ 768px đến 1024px */
-@media (max-width: 1024px) {
-    .footer-row {
-        flex-wrap: wrap;
-        gap: 20px;
-        padding-right: 0;
-    }
-
-    .footer-col {
-        min-width: 300px;
-        flex: 1;
-    }
-
-    .footer-facebook {
-        margin-left: auto;
-        margin-top: 20px;
-    }
-
-    .footer-facebook img {
-        width: 220px;
-    }
+/* Hiệu ứng nhỏ cho social icon khi hover (thêm nhẹ) */
+.footer-social a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
 }
 
-/* Tablet nhỏ và Mobile lớn: dưới 992px */
-@media (max-width: 992px) {
-    .footer-header {
-        flex-direction: column;
-        text-align: center;
+/* Nút lên đầu trang mượt hơn */
+.footer-social .up:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.mobile-menu-header {
+    display: none; /* chỉ hiện mobile */
+    padding: 20px 25px;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+}
+.mobile-menu-logo {
+    width: 60px;
+    height: auto;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+.mobile-menu-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1a4388;
+    margin-top: 8px;
+}
+
+/* RESPONSIVE */
+/* ================= RESPONSIVE TRANG CHỦ (HOME) ================= */
+
+/* Tablet lớn (≤1024px) */
+@media (max-width: 1024px) {
+    /* Banner */
+    .banner {
+        margin-top: 100px;
+        height: 420px;
+    }
+
+    .contents {
+        padding-left: 5%;
+        width: 50%;
+    }
+
+    .contents h1 {
+        font-size: 24px;
+    }
+
+    .contents h1 span {
+        font-size: 28px;
+    }
+
+    .image-section {
+        width: 50%;
+        padding-right: 3%;
+    }
+
+    .image-section img {
+        max-height: 360px;
+    }
+
+    /* Brands */
+    .brands-box {
+        padding: 20px 50px;
+    }
+
+    .brands-list {
+        padding: 0 50px;
+    }
+
+    .brands-item {
+        width: 120px;
+        height: 60px;
+    }
+
+    /* Danh mục thiết bị */
+    .product-grid-full {
+        grid-template-columns: repeat(2, 1fr);
         gap: 15px;
     }
 
-    .footer-facebook-title {
-        order: -1;
+    .cat-item {
+        margin: 8px;
+        height: 280px;
+        padding: 10px 30px;
     }
 
-    .footer-facebook {
-        margin: 20px auto 0;
+    .cat-info h3 {
+        font-size: 22px;
     }
 
-    .footer-facebook img {
-        width: 260px;
+    .cat-img {
+        bottom: -30px;
+        height: 75%;
+    }
+
+    /* Kiến thức y tế */
+    .news-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .news-header {
+        padding: 0 20px;
     }
 }
 
-/* Mobile: dưới 768px */
+/* Tablet nhỏ & Mobile lớn (≤768px) */
+@media (max-width: 768px) {
+    .product-banner {
+        display: block;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 500px;
+        padding: 0 10%;
+    }
+
+    .product-banner-content {
+        text-align: left;
+        margin-bottom: 0;
+        width: 45%;
+    }
+
+    .product-info-list {
+        font-size: 20px;
+        margin-bottom: 40px;
+    }
+
+    .product-info-list li {
+        justify-content: flex-start;
+    }
+
+    .product-machine-img {
+        width: 50%;
+        max-width: none;
+    }
+
+    .btn-detail-mobile {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+}
+
+/* Mobile nhỏ hơn - thu gọn thêm */
+@media (max-width: 480px) {
+    .product-banner {
+        min-height: 520px;
+        padding: 30px 15px 50px;
+    }
+
+    .product-info-list {
+        font-size: 17px;
+    }
+
+    .product-info-list li {
+        margin-bottom: 14px;
+    }
+
+    .btn-detail-mobile {
+        padding: 13px 35px;
+        font-size: 16px;
+    }
+
+    .product-machine-img {
+        width: 95%;
+    }
+    /* Banner: xếp dọc, chữ lên trên ảnh */
+    .banner {
+        margin-top: 80px;
+        height: auto;
+        min-height: 500px;
+        padding: 40px 20px;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .banner-container::before,
+    .shape-right {
+        display: none; /* Ẩn các shape màu phức tạp trên mobile */
+    }
+
+    .banner-container {
+        flex-direction: column;
+    }
+
+    .contents {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .contents h1 {
+        font-size: 22px;
+    }
+
+    .contents h1 span {
+        font-size: 26px;
+    }
+
+    .divider {
+        margin: 20px auto;
+        width: 200px;
+    }
+
+    .info-list {
+        justify-content: center;
+    }
+
+    .info-list li {
+        justify-content: center;
+    }
+
+    .image-section {
+        width: 100%;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .image-section img {
+        max-height: 320px;
+    }
+
+    /* Brands: cuộn ngang nếu cần */
+    .brands {
+        padding: 30px 15px;
+    }
+
+    .brands-box {
+        padding: 20px 40px;
+    }
+
+    .brands-list {
+        padding: 0 40px;
+        overflow-x: auto;
+        justify-content: flex-start;
+        gap: 30px;
+        scrollbar-width: none; /* Ẩn scrollbar Firefox */
+    }
+
+    .brands-list::-webkit-scrollbar {
+        display: none; /* Ẩn scrollbar Chrome/Safari */
+    }
+
+    .brands-item {
+        min-width: 120px;
+        width: auto;
+    }
+
+    /* Danh mục thiết bị: 1 cột */
+    .product-grid-full {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .cat-item {
+        margin: 0 15px;
+        height: 320px;
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .cat-info {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .cat-info h3 {
+        font-size: 24px;
+    }
+
+    .cat-img {
+        bottom: 0;
+        height: 60%;
+        position: static;
+    }
+
+    /* Kiến thức y tế: 2 cột */
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .news-img {
+        height: 180px;
+    }
+}
+
+/* Mobile nhỏ (≤480px) */
+@media (max-width: 480px) {
+    .banner {
+        margin-top: 70px;
+        padding: 30px 15px;
+        min-height: 450px;
+    }
+
+    .contents h1 {
+        font-size: 20px;
+    }
+
+    .contents h1 span {
+        font-size: 24px;
+    }
+
+    .image-section img {
+        max-height: 280px;
+    }
+
+    /* Brands */
+    .brands-box {
+        padding: 15px 30px;
+    }
+
+    .brands-list {
+        padding: 0 30px;
+        gap: 20px;
+    }
+
+    .brands-item {
+        min-width: 100px;
+    }
+
+    /* Danh mục */
+    .cat-item {
+        margin: 0 10px;
+        height: 300px;
+        padding: 20px 15px;
+    }
+
+    .cat-info h3 {
+        font-size: 22px;
+    }
+
+    .cat-img {
+        height: 55%;
+    }
+
+    /* Kiến thức y tế: 1 cột */
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 0 15px;
+    }
+
+    .news-header {
+        padding: 0 15px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .news-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .news-img {
+        height: 200px;
+    }
+
+    .news-text {
+        padding: 18px;
+    }
+
+    .news-text h3 {
+        font-size: 1.05rem;
+    }
+}
+
+/* Mobile rất nhỏ (≤360px) */
+@media (max-width: 360px) {
+    .contents h1 {
+        font-size: 18px;
+    }
+
+    .contents h1 span {
+        font-size: 22px;
+    }
+
+    .image-section img {
+        max-height: 240px;
+    }
+
+    .cat-item {
+        height: 280px;
+    }
+
+    .cat-info h3 {
+        font-size: 20px;
+    }
+}
+
+/* ==== HEADER ==== */
 @media (max-width: 767px) {
     /* Header giữ gọn */
     .header {
@@ -1134,6 +1507,10 @@
         transition: all 0.3s ease;
     }
     /* Drawer menu */
+
+    .nav {
+        padding: 10px 14px 16px;
+    }
     .nav-list {
         position: fixed;
         top: 0;
@@ -1175,8 +1552,7 @@
         color: #1a4388;
         margin-top: 8px;
     }
-    /* Nút X lớn rõ ràng */
-    /*    .nav-list::before {
+    .nav-list::before {
         content: "✕";
         position: absolute;
         top: 15px;
@@ -1192,7 +1568,7 @@
         justify-content: center;
         border-radius: 50%;
         background: rgba(0, 0, 0, 0.05);
-    }*/
+    }
     /* Menu items */
     .nav-item {
         width: 100%;
@@ -1226,6 +1602,12 @@
         background: #f8f9fa;
         padding: 0;
         margin: 0;
+    }
+
+    .nav-item-link.active,
+    .nav-item-link:hover {
+        background: #fff5e6;
+        color: var(--primary-color);
     }
 
     .nav-item.active > .nav-list-child,
@@ -1320,335 +1702,100 @@
     }
 }
 
-/* Mobile nhỏ: dưới 480px */
-@media (max-width: 480px) {
-    .footer {
-        padding: 25px 15px 15px;
-    }
-
-    .footer-title,
-    .footer-facebook-title {
-        font-size: 1.6rem;
-        line-height: 1.4;
-    }
-
-    .footer-info-group p {
-        font-size: 1.35rem;
-    }
-
-    .footer-menu li a {
-        font-size: 1.35rem;
-    }
-
-    .footer-social a {
-        width: 38px;
-        height: 38px;
-        font-size: 15px;
-    }
-
-    .footer-facebook img {
-        border-radius: 8px;
-    }
-}
-
-/* Hiệu ứng nhỏ cho social icon khi hover (thêm nhẹ) */
-.footer-social a:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
-    transition: all 0.3s ease;
-}
-
-/* Nút lên đầu trang mượt hơn */
-.footer-social .up:hover {
-    background: rgba(255, 255, 255, 0.25);
-}
-
-.mobile-menu-header {
-    display: none; /* chỉ hiện mobile */
-    padding: 20px 25px;
-    border-bottom: 1px solid #eee;
-    background: #fff;
-}
-.mobile-menu-logo {
-    width: 60px;
-    height: auto;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-}
-.mobile-menu-title {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #1a4388;
-    margin-top: 8px;
-}
-
-/* RESPONSIVE */
-/* ==== HEADER ==== */
-/* Mobile first - ẩn một số phần không cần thiết */
-@media (max-width: 767px) {
-    /* Header giữ gọn */
-    .header {
-        padding: 12px 15px;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        border-bottom: 1px solid #eee;
-    }
-
-    .header-logo {
-        display: flex;
-        align-items: center;
-    }
-    .head-logo {
-        width: 70px;
-        height: auto;
-        padding: 4px;
-        border: 2px solid #ccc;
-    }
-    .head-text {
-        display: none;
-    }
-    .head-title {
-        display: none;
-    }
-    .head-desc {
-        font-size: 1.05rem;
-        padding-top: 3px;
-        line-height: 1.2;
-        margin: 0;
-    }
-
-    .head-hotline {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
-    .head-lang {
-        display: none;
-    }
-    .head-phone {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        padding: 6px 10px;
-        background: #fff5e6;
-        border-radius: 20px;
-        font-size: 13px;
-        font-weight: 600;
-        color: #f39c12;
-    }
-
-    /* Hamburger */
-    .menu-toggle {
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        z-index: 10000;
-    }
-    .hamburger span {
-        display: block;
-        width: 26px;
-        height: 3px;
-        background: #333;
-        margin: 5px 0;
-        border-radius: 2px;
-        transition: all 0.3s ease;
-    }
-
-    /* Drawer menu */
-    .nav-list {
-        position: fixed;
-        top: 0;
-        left: -100%;
-        width: 320px;
-        height: 100vh;
-        background: #ffffff;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0;
-        box-shadow: 5px 0 20px rgba(0, 0, 0, 0.15);
-        transition: left 0.4s ease;
-        z-index: 9999;
-        overflow-y: auto;
-    }
-    .nav-list.active {
-        left: 0;
-    }
-
-    /* Logo header mobile */
-    .mobile-menu-header {
-        display: block;
-        padding: 20px 25px;
-        border-bottom: 1px solid #eee;
-        background: #fff;
-        width: 100%;
-    }
-    .mobile-menu-logo {
-        width: 60px;
-        height: auto;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-    }
-    .mobile-menu-title {
-        font-size: 1.4rem;
-        font-weight: 700;
-        color: #1a4388;
-        margin-top: 8px;
-    }
-
-    /* Nút X lớn rõ ràng */
-    .nav-list::before {
-        content: "✕";
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        font-size: 32px;
-        color: #333;
-        cursor: pointer;
-        z-index: 10001;
-        width: 50px;
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: rgba(0, 0, 0, 0.05);
-    }
-
-    /* Menu items */
-    .nav-item {
-        width: 100%;
-    }
-    .nav-item-link {
-        padding: 18px 25px;
-        font-size: 1.7rem;
-        font-weight: 600;
-        display: block;
-        width: 100%;
-        border-bottom: 1px solid #eee;
-        color: #333;
-        position: relative;
-        transition: background 0.3s;
-    }
-
-    /* Active trang hiện tại + Hover background vàng full width */
-    .nav-item-link.active,
-    .nav-item-link:hover {
-        background: #fff5e6;
-        color: var(--primary-color);
-    }
-
-    /* Submenu & Mega menu - accordion đẩy item dưới xuống */
-    .nav-list-child,
-    .mega-menu {
-        display: none;
-        width: 100%;
-        background: #f8f9fa;
-        padding: 0;
-        margin: 0;
-    }
-    .nav-item.active > .nav-list-child,
-    .nav-item.active > .mega-menu {
-        display: block;
-    }
-
-    /* Style cho mega menu trong mobile */
-    .mega-column {
-        padding: 15px 25px;
-        border-bottom: 1px dashed #ddd;
-    }
-    .mega-column:last-child {
-        border-bottom: none;
-    }
-    .mega-title {
-        font-size: 1.55rem;
-        color: #1a4388;
-        margin-bottom: 12px;
-        font-weight: 600;
-    }
-    .mega-list a {
-        display: block;
-        padding: 12px 0;
-        font-size: 1.5rem;
-        color: #555;
-        padding-left: 20px;
-    }
-    .mega-list a:hover {
-        color: #f39c12;
-        transform: translateX(8px);
-    }
-
-    /* Overlay */
-    .nav::after {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.6);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s;
-        z-index: 9998;
-    }
-    .nav.active::after {
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
-/* Tablet (768px - 1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
     .header {
-        padding: 15px 20px;
-    }
-
-    .head-title {
-        font-size: 1.7rem;
-    }
-
-    .head-desc {
-        font-size: 1.4rem;
-    }
-
-    .nav {
         padding: 12px 20px;
     }
 
-    .nav-list {
+    .head-logo {
+        width: 75px;
+    }
+
+    .head-title {
         font-size: 1.5rem;
+    }
+
+    .head-desc {
+        font-size: 1.15rem;
+    }
+
+    .head-phone {
+        font-size: 13px;
+        padding: 5px 10px;
+    }
+
+    /* Nav: space-between để search luôn bên phải riêng biệt */
+    .nav {
+        padding: 8px 20px;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        justify-content: space-between;
         gap: 10px;
     }
 
+    /* Menu list: linh hoạt co giãn, chiếm chỗ còn lại */
+    .nav-list {
+        display: flex;
+        flex: 1 1 auto; /* Co giãn linh hoạt */
+        justify-content: center;
+        font-size: 1.18rem; /* Chữ nhỏ gọn vừa phải */
+        gap: 6px; /* Cách nhau ít để tiết kiệm chỗ */
+        min-width: 0; /* Cho phép co item nếu cần */
+        overflow: hidden; /* Ẩn bớt nếu quá dài (hiếm) */
+    }
+
+    .nav-item {
+        flex: 1 1 auto; /* Các item tự co đều */
+        min-width: 0;
+    }
+
     .nav-item-link {
-        padding: 10px 12px;
+        padding: 8px 6px; /* Padding nhỏ */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; /* Cắt chữ dài nếu cần */
+        font-weight: 600;
+        text-align: center;
+    }
+
+    /* Ô SEARCH: linh hoạt, min 160px để đủ dùng, max 220px tránh chồng */
+    .nav-search {
+        position: relative;
+        flex: 0 1 180px; /* Co giãn từ 160-220px */
+        min-width: 160px; /* Luôn đủ rộng nhập từ */
+        padding: 4px 10px;
+        border: 2px solid #ddd;
+        border-radius: 30px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     }
 
     .nav-search-input {
-        width: 120px;
+        flex: 1;
+        border: none;
+        outline: none;
+        font-size: 13px;
+        padding: 6px 8px;
     }
 
+    .nav-search-btn {
+        position: absolute;
+        right: 10px;
+        font-size: 16px;
+        color: #555;
+        padding: 8px;
+    }
+
+    /* Mega menu 4 cột */
     .mega-container {
-        grid-template-columns: repeat(4, 1fr); /* 4 cột trên tablet */
-    }
-}
-
-/* Desktop lớn (>1023px) - giữ nguyên nhưng tối ưu thêm */
-@media (min-width: 1024px) {
-    .header {
-        padding: 10px 30px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        padding: 0 20px;
     }
 
-    .nav {
-        padding: 10px 30px 16px;
-    }
-
-    .mega-container {
-        grid-template-columns: repeat(6, 1fr);
-    }
-
-    /* Hover mega menu */
     .nav-item.has-mega:hover .mega-menu {
         display: block;
     }
@@ -1658,12 +1805,324 @@
     }
 }
 
-/* Thêm một chút cho shrink khi scroll (nếu bạn muốn giữ class .shrink) */
-.header-fixed.shrink .header {
-    padding: 8px 15px;
-    transition: padding 0.3s ease;
+/* ================== FOOTER RESPONSIVE -  ================== */
+
+/* Tablet lớn (≤ 1199px) */
+@media (max-width: 1199px) {
+    .footer-row {
+        gap: 20px;
+        padding-right: 20px;
+    }
+
+    .footer-col {
+        min-width: 240px;
+    }
+
+    .footer-facebook img {
+        width: 260px;
+    }
 }
 
-.header-fixed.shrink .nav {
-    padding: 8px 10px 12px;
+/* Tablet (≤ 992px) */
+@media (max-width: 992px) {
+    .footer {
+        padding: 60px 30px 40px;
+    }
+
+    .footer-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-title,
+    .footer-facebook-title {
+        font-size: 19px;
+    }
+
+    .footer-row {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    .footer-col {
+        flex: 1 1 40%;
+        min-width: 280px;
+        text-align: center;
+    }
+
+    .footer-info-group {
+        justify-content: center;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .footer-facebook {
+        margin-top: 30px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-facebook img {
+        width: 320px;
+        max-width: 100%;
+        border-radius: 18px;
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+    }
+
+    .footer-sep {
+        display: none !important;
+    }
+}
+
+/* Mobile lớn (≤ 768px) - Fix lỗi co nhỏ nhất */
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 50px 20px 40px;
+    }
+
+    /* Ẩn tiêu đề "FACEBOOK" trên mobile để sạch sẽ hơn (như các site corporate hiện đại) */
+    .footer-facebook-title {
+        display: none;
+    }
+
+    /* Tiêu đề công ty căn giữa */
+    .footer-header {
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-title {
+        font-size: 18px;
+        line-height: 1.4;
+        max-width: 90%;
+    }
+
+    /* Các khối địa chỉ xếp dọc, căn giữa hoàn hảo, khoảng cách rộng */
+    .footer-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+        margin-top: 30px;
+    }
+
+    .footer-col {
+        width: 100%;
+        max-width: 360px;
+        text-align: center;
+    }
+
+    /* Mỗi khối địa chỉ riêng biệt, không dùng sep dọc nữa */
+    .footer-info-group {
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .footer-info-group p {
+        margin: 0;
+        padding: 0;
+        border: none;
+        font-size: 1.5rem;
+        line-height: 1.9;
+    }
+
+    .footer-info-group strong {
+        font-size: 1.6rem;
+        color: #18a0fb;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .footer-info-group span {
+        padding-top: 0;
+    }
+
+    .footer-sep {
+        display: none !important;
+    }
+
+    /* Facebook plugin căn giữa, nổi bật */
+    .footer-facebook {
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-facebook img {
+        width: 100%;
+        max-width: 360px;
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Bottom: menu và social căn giữa đẹp */
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 35px;
+        padding-top: 35px;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .footer-menu {
+        flex-wrap: wrap;
+        display: flex;
+        text-align: center;
+        gap: 16px 28px;
+    }
+
+    .footer-menu li a {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #eaf2fb;
+        transition: color 0.3s ease;
+    }
+
+    .footer-menu li a:hover {
+        color: #18a0fb;
+    }
+
+    .footer-social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .footer-social a {
+        width: 52px;
+        height: 52px;
+        font-size: 22px;
+        border: 2px solid rgba(255, 255, 255, 0.7);
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        transition: all 0.4s ease;
+    }
+
+    .footer-social a:hover {
+        background: #18a0fb;
+        border-color: #18a0fb;
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(24, 160, 251, 0.5);
+    }
+}
+
+/* Mobile nhỏ hơn (≤ 480px) */
+@media (max-width: 480px) {
+    .footer {
+        padding: 45px 15px 35px;
+    }
+
+    .footer-title {
+        font-size: 17px;
+    }
+
+    .footer-info-group {
+        gap: 35px;
+    }
+
+    .footer-info-group p {
+        font-size: 1.45rem;
+        line-height: 1.85;
+    }
+
+    .footer-info-group strong {
+        font-size: 1.55rem;
+    }
+
+    .footer-facebook img {
+        border-radius: 18px;
+        max-width: 100%;
+    }
+
+    .footer-menu {
+        gap: 14px 22px;
+    }
+
+    .footer-social a {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    .footer {
+        padding: 40px 12px 30px; /* Giảm padding ngang để tránh chật */
+    }
+
+    /* Tiêu đề công ty nhỏ hơn một chút nhưng vẫn rõ ràng */
+    .footer-title {
+        font-size: 15px;
+        line-height: 1.4;
+    }
+
+    /* Các khối thông tin địa chỉ */
+    .footer-info-group {
+        gap: 32px; /* Giữ khoảng cách rộng rãi */
+    }
+
+    .footer-info-group p {
+        font-size: 1.35rem; /* Nhỏ hơn một chút để vừa màn hình */
+        line-height: 1.8;
+    }
+
+    .footer-info-group strong {
+        font-size: 1.5rem; /* Tiêu đề khối vẫn nổi bật */
+    }
+
+    /* Ảnh Facebook plugin co vừa khít, không tràn */
+    .footer-facebook img {
+        max-width: 100%;
+        width: 100%;
+        border-radius: 16px;
+    }
+
+    /* Menu bottom: khi quá hẹp thì tự động xuống dòng và căn giữa đẹp */
+    .footer-menu {
+        gap: 10px 16px; /* Giảm gap ngang để dễ wrap */
+        justify-content: center;
+        flex-wrap: wrap; /* Đảm bảo wrap khi không đủ chỗ */
+    }
+
+    .footer-menu li a {
+        font-size: 1.35rem; /* Nhỏ hơn để vừa */
+    }
+
+    /* Icon social: nếu quá sát mép thì tự động xuống dòng, căn giữa hoàn hảo */
+    .footer-social {
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap; /* Cho phép icon xuống dòng nếu màn hình quá nhỏ */
+        padding: 0 10px; /* Thêm chút padding để tránh dính mép */
+    }
+
+    .footer-social a {
+        width: 46px;
+        height: 46px;
+        font-size: 19px;
+        flex-shrink: 0; /* Không co nhỏ icon */
+    }
+
+    /* Nút lên đầu trang (up) cũng theo quy tắc chung */
+    .footer-social a.up {
+        width: 46px;
+        height: 46px;
+        font-size: 20px;
+    }
+
+    /* Đảm bảo toàn bộ footer bottom không bị tràn */
+    .footer-bottom {
+        gap: 30px;
+    }
 }
