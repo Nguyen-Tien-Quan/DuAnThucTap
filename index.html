@@ -200,22 +200,20 @@
                     <div class="news-header">
                         <h2>KIẾN THỨC Y TẾ</h2>
                         <div class="news-dots">
-                            <span></span><span></span><span></span><span></span>
+                            <span class="dot active" data-index="0"></span>
+                            <span class="dot" data-index="1"></span>
+                            <span class="dot" data-index="2"></span>
+                            <span class="dot" data-index="3"></span>
                         </div>
                     </div>
-
-                    <div class="news-grid">
-                        <div class="news-item">
-                            <div class="news-img">
-                                <img
-                                    src="assets/img/new-1.png"
-                                    alt="Heart health"
-                                />
-                            </div>
-                            <div class="news-text">
+                    <!-- Phần Mobile -->
+                    <div class="news-slider-mobile">
+                        <div class="news-slide active">
+                            <div class="news-img-mobile"></div>
+                            <div class="news-text-mobile">
                                 <h3>
                                     Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây
-                                    để cứu tự cứu lấy mình
+                                    để tự cứu lấy mình
                                 </h3>
                                 <p>
                                     Bạn cảm thấy trong ngực có một luồng đau
@@ -225,6 +223,84 @@
                             </div>
                         </div>
 
+                        <div class="news-slide">
+                            <div class="news-img-mobile">
+                                <img
+                                    src="assets/img/new-2.png"
+                                    alt="Family health"
+                                />
+                            </div>
+                            <div class="news-text-mobile">
+                                <h3>
+                                    Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây
+                                    để tự cứu lấy mình
+                                </h3>
+                                <p>
+                                    Bạn cảm thấy trong ngực có một luồng đau
+                                    nhói, hơn thế nữa nó bắt đầu lan đến cánh
+                                    tay và cằm. Ngay lúc này, muốn đến...
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="news-slide">
+                            <div class="news-img-mobile">
+                                <img src="assets/img/new-3.png" alt="Yoga" />
+                            </div>
+                            <div class="news-text-mobile">
+                                <h3>
+                                    Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây
+                                    để tự cứu lấy mình
+                                </h3>
+                                <p>
+                                    Bạn cảm thấy trong ngực có một luồng đau
+                                    nhói, hơn thế nữa nó bắt đầu lan đến cánh
+                                    tay và cằm. Ngay lúc này, muốn đến...
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="news-slide">
+                            <div class="news-img-mobile">
+                                <img src="assets/img/new-4.png" alt="Doctors" />
+                            </div>
+                            <div class="news-text-mobile">
+                                <h3>
+                                    Khi bị nhồi máu cơ tim, bạn chỉ có 10 giây
+                                    để tự cứu lấy mình
+                                </h3>
+                                <p>
+                                    Bạn cảm thấy trong ngực có một luồng đau
+                                    nhói, hơn thế nữa nó bắt đầu lan đến cánh
+                                    tay và cằm. Ngay lúc này, muốn đến...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Phần desktop -->
+                    <div class="news-grid">
+                        <a href="./pages/details.html"
+                            ><div class="news-item">
+                                <div class="news-img">
+                                    <img
+                                        src="assets/img/new-1.png"
+                                        alt="Heart health"
+                                    />
+                                </div>
+                                <div class="news-text">
+                                    <h3>
+                                        Khi bị nhồi máu cơ tim, bạn chỉ có 10
+                                        giây để cứu tự cứu lấy mình
+                                    </h3>
+                                    <p>
+                                        Bạn cảm thấy trong ngực có một luồng đau
+                                        nhói, hơn thế nữa nó bắt đầu lan đến
+                                        cánh tay và cằm. Ngay lúc này, muốn
+                                        đến...
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
                         <div class="news-item">
                             <div class="news-text">
                                 <h3>
@@ -285,6 +361,8 @@
         </main>
 
         <script src="assets/js/layout.js"></script>
+        <script src="assets/js/brand-slider.js"></script>
+        <script src="assets/js/banner.js"></script>
         <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
     </body>
 </html>

@@ -560,6 +560,7 @@
 /* MŨI TÊN */
 .brands-arrow {
     position: absolute;
+    z-index: 1;
     top: 50%;
     transform: translateY(-50%);
     width: 32px;
@@ -754,16 +755,28 @@
     margin: 0;
 }
 
+.news-slider-mobile {
+    display: none;
+}
+
 /* Các dấu chấm trang trí */
-.news-dots span {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
+.news-dots {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.news-dots .dot {
+    width: 10px;
+    height: 10px;
     background: #ccc;
     border-radius: 50%;
-    margin-left: 5px;
+    margin: 0 6px;
+    cursor: pointer;
+    transition: background 0.3s;
 }
-.news-dots span:first-child {
+
+.news-dots .dot.active {
     background: #1a3052;
 }
 
@@ -1175,6 +1188,99 @@
     .btn-detail-mobile {
         padding: 12px 30px;
         font-size: 16px;
+    }
+
+    .news-dots {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+    }
+
+    .news-dots .dot {
+        width: 10px;
+        height: 10px;
+        background: #ccc;
+        border-radius: 50%;
+        margin: 0 6px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .news-dots .dot.active {
+        background: #1a3052;
+    }
+
+    .news-grid {
+        display: none;
+    }
+
+    /* Hiện slider mới và dots */
+    .news-slider-mobile {
+        display: block;
+        padding: 0 20px;
+    }
+
+    .news-dots {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 30px;
+    }
+
+    .news-dots .dot {
+        width: 10px;
+        height: 10px;
+        background: #ccc;
+        border-radius: 50%;
+        margin: 0 6px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .news-dots .dot.active {
+        background: #1a3052;
+    }
+
+    /* Slider: chỉ hiện 1 slide */
+    .news-slide {
+        display: none;
+        text-align: center;
+    }
+
+    .news-slide.active {
+        display: block;
+    }
+
+    /* Ảnh nhỏ hơn, bo góc, có khoảng cách */
+    .news-img-mobile {
+        margin-bottom: 20px;
+    }
+
+    .news-img-mobile img {
+        width: 100%;
+        max-width: 320px; /* Ảnh nhỏ gọn như mẫu */
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Text bên dưới ảnh */
+    .news-text-mobile {
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .news-text-mobile h3 {
+        font-size: 1.1rem;
+        color: #1a3052;
+        margin-bottom: 12px;
+    }
+
+    .news-text-mobile p {
+        font-size: 0.95rem;
+        color: #666;
+        line-height: 1.5;
     }
 }
 

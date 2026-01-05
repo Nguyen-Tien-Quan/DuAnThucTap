@@ -153,7 +153,6 @@
         margin: 22px 0 12px;
     }
 
-    /* Sidebar đẩy xuống dưới, giống content-right */
     .content-right {
         width: 100%;
         padding: 0;
@@ -161,7 +160,6 @@
         order: 2;
     }
 
-    /* Banner giống sv-banner */
     .banner {
         margin-top: 60px;
         height: 280px;
