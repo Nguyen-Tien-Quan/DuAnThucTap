@@ -340,11 +340,11 @@
     position: relative;
     margin-top: 160px;
     width: 100%;
-    height: 500px; /* Tăng nhẹ chiều cao để không gian thoáng hơn */
+    height: 500px;
     background: url("../img/bg-hospital-2.png") no-repeat center center;
     background-size: cover;
     display: flex;
-    align-items: center; /* Căn giữa nội dung theo chiều dọc */
+    align-items: center;
     overflow: hidden;
 }
 

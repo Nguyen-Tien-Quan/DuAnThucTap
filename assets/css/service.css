@@ -1,8 +1,8 @@
 /* ================= SERVICE BANNER ================= */
 .sv-banner {
-    margin-top: 80px;
-    padding-top: 140px;
-    height: 460px;
+    margin-top: var(--margin-top-head);
+    padding-top: 100px;
+    height: 500px;
     background-image: url("../img/service-banner.png");
     background-size: cover;
     background-position: center;

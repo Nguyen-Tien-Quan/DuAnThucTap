@@ -53,7 +53,6 @@ function setActiveMenu() {
     });
 }
 
-// Mega menu PC HOÀN HẢO - Hover vào "Sản phẩm" là bung, hover ra là thụt
 function initMegaMenu() {
     const hasMegaItem = document.querySelector(".nav-item.has-mega");
     const megaMenu = document.querySelector(".mega-menu");

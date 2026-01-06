@@ -1,8 +1,7 @@
 /* --- LAYOUT CHUNG (GIỮ NGUYÊN Ý BẠN) --- */
 /* ================= SERVICE BANNER ================= */
 .sv-banner {
-    margin-top: 80px;
-    padding-top: 140px;
+    margin-top: var(--margin-top-head);
     height: 460px;
     background-image: url("../img/service-banner.png");
     background-size: cover;

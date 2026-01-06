@@ -1,9 +1,12 @@
 /* Banner (nếu muốn overlay như cũ) */
 .project-banner {
-    margin-top: 80px;
-    height: 400px;
-    background: url("../img/service-banner.png") center/cover no-repeat;
+    padding-top: 148px;
+    height: 460px;
+    background-image: url("../img/service-banner.png");
+    background-size: cover;
+    background-position: center;
     position: relative;
+    display: flex;
 }
 
 /* Breadcrumb */
