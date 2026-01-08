@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ứng Tuyển Việc Làm</title>
+
+        <!-- ICON -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
+
+        <!-- FAVICON -->
+        <link rel="shortcut icon" href="../assets/img/logo.jpg" />
+
+        <!-- GOOGLE FONT -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- RESET & BASE -->
+        <link rel="stylesheet" href="../assets/css/resets.css" />
+        <link rel="stylesheet" href="../assets/css/base.css" />
+        <link rel="stylesheet" href="../assets/css/main.css" />
+
+        <!-- STYLE RIÊNG CHO TRANG ỨNG TUYỂN -->
+        <link rel="stylesheet" href="../assets/css/apply.css" />
+    </head>
+    <body>
+        <div class="app">
+            <div id="header-include"></div>
+
+            <!-- NỘI DUNG ỨNG TUYỂN -->
+            <section class="apply-hero">
+                <div class="container">
+                    <div class="apply-content">
+                        <span class="apply-badge">
+                            <i class="fa-solid fa-staff-snake"></i> ỨNG TUYỂN VỊ
+                            TRÍ
+                        </span>
+                        <h1>Đơn Ứng Tuyển</h1>
+                        <p class="apply-subtitle">
+                            Hãy cùng chúng tôi mang đến sức khỏe tốt đẹp hơn cho
+                            cộng đồng
+                        </p>
+
+                        <div class="current-position">
+                            <i class="fa-solid fa-briefcase"></i>
+                            <strong>Vị trí ứng tuyển:</strong>
+                            <span id="position-display">Chưa chọn</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="apply-form-section">
+                <div class="container">
+                    <form
+                        action="#"
+                        method="POST"
+                        enctype="multipart/form-data"
+                        class="recruitment-form"
+                    >
+                        <!-- Vị trí (ẩn + hiển thị) -->
+                        <input
+                            type="hidden"
+                            name="position"
+                            id="position-input"
+                            required
+                        />
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="full-name"
+                                    >Họ và tên
+                                    <span class="required">*</span></label
+                                >
+                                <input
+                                    type="text"
+                                    id="full-name"
+                                    name="full-name"
+                                    required
+                                    placeholder="Nguyễn Văn A"
+                                />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone"
+                                    >Số điện thoại
+                                    <span class="required">*</span></label
+                                >
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    required
+                                    placeholder="0901234567"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email"
+                                >Email <span class="required">*</span></label
+                            >
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                placeholder="example@gmail.com"
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="position-select"
+                                >Vị trí mong muốn
+                                <span class="required">*</span></label
+                            >
+                            <select id="position-select" required>
+                                <option value="">-- Chọn vị trí --</option>
+                                <option value="Bác sĩ Đa khoa">
+                                    Bác sĩ Đa khoa
+                                </option>
+                                <option value="Điều dưỡng">Điều dưỡng</option>
+                                <option value="Nhân viên CNTT Y tế">
+                                    Nhân viên CNTT Y tế
+                                </option>
+                                <option value="Khác">
+                                    Khác (ghi rõ bên dưới)
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="experience">Kinh nghiệm làm việc</label>
+                            <input
+                                type="text"
+                                id="experience"
+                                name="experience"
+                                placeholder="Ví dụ: 3 năm tại Bệnh viện Chợ Rẫy"
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message"
+                                >Lý do ứng tuyển / Giới thiệu bản thân</label
+                            >
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="6"
+                                placeholder="Hãy chia sẻ lý do bạn muốn gia nhập đội ngũ chúng tôi và những kỹ năng nổi bật của bạn..."
+                            ></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cv"
+                                    >Upload CV / Hồ sơ (PDF, DOCX)
+                                    <span class="required">*</span></label
+                                >
+                                <input
+                                    type="file"
+                                    id="cv"
+                                    name="cv"
+                                    accept=".pdf,.doc,.docx"
+                                    required
+                                />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cover-letter"
+                                    >Thư ứng tuyển (nếu có)</label
+                                >
+                                <input
+                                    type="file"
+                                    id="cover-letter"
+                                    name="cover-letter"
+                                    accept=".pdf,.doc,.docx"
+                                />
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-apply-submit">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            Gửi Đơn Ứng Tuyển
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <div id="footer-include"></div>
+        </div>
+
+        <script src="../assets/js/layout.js"></script>
+
+        <!-- Tự động điền vị trí từ URL -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const params = new URLSearchParams(window.location.search);
+                const position = params.get("position");
+
+                const select = document.getElementById("position-select");
+                const display = document.getElementById("position-display");
+                const hiddenInput = document.getElementById("position-input");
+
+                if (position) {
+                    // Tìm option khớp và chọn
+                    for (let option of select.options) {
+                        if (option.value === position) {
+                            option.selected = true;
+                            break;
+                        }
+                    }
+                    display.textContent = position;
+                    hiddenInput.value = position;
+                }
+
+                // Khi thay đổi select, cập nhật lại
+                select.addEventListener("change", function () {
+                    const selected = select.value || "Chưa chọn";
+                    display.textContent =
+                        selected === "" ? "Chưa chọn" : selected;
+                    hiddenInput.value = select.value;
+                });
+            });
+        </script>
+    </body>
+</html>
