@@ -145,12 +145,16 @@ function updatePage() {
     renderProjects(currentPage);
     renderPagination();
     // Cuộn mượt lên grid
-    grid.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+    document
+        .querySelector(".project-breadcrumb a")
+        .scrollIntoView({ behavior: "smooth" });
 }
 
 // Chạy ngay khi page load (an toàn hơn DOMContentLoaded nếu có script khác)
 window.addEventListener("load", () => {
     updatePage();
+    window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 // Nếu vẫn không chạy, fallback chạy ngay lập tức

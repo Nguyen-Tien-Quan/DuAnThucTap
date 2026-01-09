@@ -1,6 +1,7 @@
 /* recruitment-apply.css - Phiên bản cải thiện: đẹp hơn, chuyên nghiệp y tế hơn */
 
 .apply-hero {
+    margin: var(--margin-top-head);
     background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
     padding: 80px 0 60px;
     text-align: center;
@@ -91,19 +92,37 @@
     color: #d32f2f;
 }
 
+/* === CẢI THIỆN FORM ỨNG TUYỂN - ĐẸP HƠN, ĐỀU HƠN === */
+
+/* Đảm bảo tất cả input, select, textarea có cùng chiều cao và style */
 .form-group input,
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 16px 20px;
+    padding: 18px 20px; /* Tăng padding để cao hơn, đều hơn */
     border: 2px solid #a5d6a7;
     border-radius: 12px;
     font-family: "Montserrat", sans-serif;
     font-size: 1.1rem;
     background: #f8fff8;
     transition: all 0.3s;
+    box-sizing: border-box; /* Quan trọng: đảm bảo padding không làm tràn */
+    min-height: 58px; /* Đặt chiều cao tối thiểu cố định */
+    display: flex;
+    align-items: center; /* Căn giữa chữ theo chiều dọc */
 }
 
+/* Đặc biệt cho select: làm giống input hơn */
+.form-group select {
+    appearance: none; /* Bỏ mũi tên mặc định */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path fill="%232e7d32" d="M0 0l6 8 6-8z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 12px;
+    padding-right: 50px; /* Để chỗ cho mũi tên custom */
+}
+
+/* Focus state đồng nhất */
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
@@ -113,9 +132,47 @@
     box-shadow: 0 0 0 4px rgba(67, 160, 71, 0.2);
 }
 
+/* Căn chỉnh label và input tốt hơn */
+.form-group label {
+    display: block;
+    font-weight: 700;
+    color: #1b5e20;
+    margin-bottom: 12px; /* Tăng khoảng cách đều hơn */
+    font-size: 1.1rem;
+}
+
+/* Form row: đảm bảo 2 cột đều nhau */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start; /* Căn đầu dòng */
+}
+
+/* Khi màn hình nhỏ thì xuống 1 cột */
+@media (max-width: 868px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Fix textarea không bị quá cao ban đầu */
 .form-group textarea {
-    min-height: 150px;
-    resize: vertical;
+    min-height: 150px !important;
+    padding: 18px 20px;
+    align-items: flex-start; /* Textarea thì căn trên */
+}
+
+/* Optional: Thêm chút không gian cho file input (nếu muốn đẹp hơn) */
+.form-group input[type="file"] {
+    padding: 14px 20px;
+    min-height: auto;
+    cursor: pointer;
+}
+
+/* Tinh chỉnh khoảng cách tổng thể form */
+.recruitment-form {
+    gap: 32px; /* Tăng gap giữa các field một chút cho thoáng */
 }
 
 .file-note {
@@ -155,6 +212,10 @@
 
 /* Responsive */
 @media (max-width: 868px) {
+    .apply-hero {
+        margin: var(--margin-top-head) auto 0;
+        width: 100%;
+    }
     .form-row {
         grid-template-columns: 1fr;
     }
